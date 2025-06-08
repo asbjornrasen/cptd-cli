@@ -19,6 +19,38 @@ It is recommended to store all files in a single folder, organized by year.
 └── ...
 ```
 
+---
+Okay, here's the English translation of the task format example:
+
+For a task in the CPTD system, the general format is as follows:
+
+```
+[status][priority] task:Task Name start:YYYYMMDD due:YYYYMMDD id:Unique ID goals:Goal project:Project role:role,name depends:on:<DependencyID> method:method tags:tag1,tag2
+```
+Where:
+* `[status]` - indicates the state of the task (e.g., `[]` for active, `[X]` for completed, `[-]` for paused, `[!]` for canceled).
+* `[priority]` - optional but recommended attribute, which can be `[A]` (urgent), `[B]` (important), `[C]` (desirable), `[D]` (optional).
+* `task:` - keyword indicating that this is a task.
+* `Task Name` - a brief description of the action.
+* `start:YYYYMMDD` - task start date in `YYYYMMDD` format.
+* `due:YYYYMMDD` - task deadline.
+* `id:Unique ID` - a unique task identifier that should not be changed after creation. It is recommended to use the `Gxxx_Pxx_Txx` structure.
+* `goals:Goal` - to which global goal this task belongs.
+* `project:Project` - to which project within the goal the task belongs.
+* `role:role,name` - indicates who is performing the task if it's not you (e.g., `role:other,Marina`).
+* `depends:on:<DependencyID>` - indicates a dependency on another task by its ID.
+* `method:method` - method or tool for completing the task (e.g., `method:anki`).
+* `tags:tag1,tag2` - tags for filtering and sorting (e.g., `tags:focus,urgent`).
+
+**Examples of tasks from the documentation:**
+
+* Completed task with priority: `[X][A] task:eliminate sugar id:G001_P01_T01`.
+* Active task with dates and ID: `[] [B] task:write May report start:2025-06-02 due:2025-06-02 id:G002_P01_T01`.
+* Task with role and dependency specified: `[][C] task:attach form to report id:G002_P03_T02 depends:on:<G002_P03_T01>`.
+
+This format ensures clarity and machine readability, allowing for easy task tracking and management.
+---
+
 ### 2. The Main File: `goals_cptd.md`
 
 This file is your control panel. Here, you describe all major goals and break them down into projects and specific tasks.
