@@ -10,9 +10,6 @@ The language follows the principle of Semantic Lightweight Markup with Operation
 
 Thus, CPTD-DSL serves as a universal solution for text-based GTD, striking a balance between machine formalizability and human readability.
 
-
-Here's the English translation of the provided Russian text:
-
 ### **Official Documentation: CPTD System**
 
 ### **1. Brief Definition**
