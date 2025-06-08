@@ -20,8 +20,6 @@ It is recommended to store all files in a single folder, organized by year.
 ```
 
 ---
-Okay, here's the English translation of the task format example:
-
 For a task in the CPTD system, the general format is as follows:
 
 ```
