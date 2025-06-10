@@ -20,11 +20,16 @@ def main():
         return
 
     try:
-        module = importlib.import_module(f'cptd_tool.commands.{args.command}')
+        import_path = f'cptd_tools.commands.{args.command}'
+        # print(f'[debug] Импорт модуля: {import_path}')
+        module = importlib.import_module(import_path)
+        # print(f'[debug] Модуль загружен: {module}')
         module.run(unknown)
-    except ModuleNotFoundError:
-        print(f'\n[!] Неизвестная команда: {args.command}')
+    except Exception as e:
+        print(f'\n[!] Ошибка при выполнении команды: {args.command}')
+        print(f'[trace] {type(e).__name__}: {e}')
         sys.exit(1)
+
 
 if __name__ == '__main__':
     main()
