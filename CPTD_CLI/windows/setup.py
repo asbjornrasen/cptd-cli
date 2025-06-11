@@ -5,9 +5,9 @@ from setuptools import setup, find_packages
 setup(
     name='cptd',
     version='1.0.0',
-    description='CPTD CLI — инструмент для работы с DSL-планировщиком',
+    description='CPTD CLI — DSL Scheduler Tool',
     author='Asbjorn Rasen',
-    author_email='author@example.com',
+    author_email='asbjornrasen@gmail.com',
     # packages=find_packages(include=['cptd_tools', 'cptd_tools.commands']),
     # заменяем
     packages=find_packages(),                 # без include=…
