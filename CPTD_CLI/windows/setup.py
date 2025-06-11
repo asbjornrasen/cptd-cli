@@ -12,6 +12,10 @@ setup(
     # заменяем
     packages=find_packages(),                 # без include=…
 
+    include_package_data=True,
+    package_data={'cptd_tools': ['cptd_manifest.cptd']},
+
+
     entry_points={
         'console_scripts': [
             'cptd = cptd_tools.main:main'
