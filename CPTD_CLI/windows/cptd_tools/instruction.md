@@ -5,6 +5,7 @@ The following commands are available in the CPTD CLI:
 | Command      | Purpose                                                                 |
 |--------------|-------------------------------------------------------------------------|
 | `help`       | Show active commands                                                    |
+| `setpath`    | The path will be saved in ~/.cptd_config.json
 | `parse`      | Parse a CPTD file and display the task structure                        |
 | `filter`     | Filter tasks by status, type, priority, or date                         |
 | `report`     | Show task statistics (completed, remaining, etc.)                       |

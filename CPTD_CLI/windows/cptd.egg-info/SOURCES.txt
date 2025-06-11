@@ -10,4 +10,5 @@ cptd_tools/main.py
 cptd_tools/commands/__init__.py
 cptd_tools/commands/parse.py
 cptd_tools/commands/report.py
+cptd_tools/commands/setpath.py
 cptd_tools/commands/template.py
