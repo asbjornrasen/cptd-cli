@@ -18,6 +18,16 @@ The language follows the principle of Semantic Lightweight Markup with Operation
 
 Thus, CPTD-DSL serves as a universal solution for text-based GTD, striking a balance between machine formalizability and human readability.
 
+CPTD-DSL is not just a tool. It is a new generation thinking environment.
+It is the language of those who do not go with the flow, but build their own destiny.
+Those who replace chaos with a system, laziness with a priority, forgetfulness with order.
+
+It is a method for those who decide not just to live, but to set goals, comprehend and win.
+Every day you do not just keep a file - you shape yourself, layer by layer, line by line.
+
+CPTD-DSL is a declaration of personal evolution.
+And if you write it, then you are in the game......
+
 ### **Official Documentation: CPTD System**
 
 ### **1. Brief Definition**
