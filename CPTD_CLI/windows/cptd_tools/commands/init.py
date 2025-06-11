@@ -7,27 +7,27 @@ def run(argv):
     daily_log_name = f"{today_str}_cptd.md"
 
     files_to_create = {
-        "goals_cptd.md": "# Цели\n\n[][A]goals:Пример цели id:G001 status:activ progress:0/1\n",
-        "archive_cptd.md": "# Архив целей\n\n[archive]\n",
+        "goals_cptd.md": "# Goals\n\n[][A]goals:Example of a goal id:G001 status:activ progress:0/1\n",
+        "archive_cptd.md": "# Goals Archive\n\n[archive]\n",
         "user_manifest.cptd": f"""## User Manifest
 
 version: 1.0.0
 created: {today_str}
 author: you@example.com
 
-description: "Пользовательский манифест целей, задач и активности"
+description: "User Manifestation of Goals, Tasks and Activities"
 """,
-        daily_log_name: f"# Ежедневный лог {today_str}\n\n[] task:Начать планирование дня\n"
+        daily_log_name: f"# Daily log {today_str}\n\n[][] task:Start planning your day\n"
     }
 
-    print(f"📁 Инициализация проекта CPTD в: {target_dir.resolve()}\n")
+    print(f"📁 Initializing the CPTD project in: {target_dir.resolve()}\n")
 
     for filename, content in files_to_create.items():
         file_path = target_dir / filename
         if file_path.exists():
-            print(f"⚠️  {filename} уже существует — пропущен")
+            print(f"⚠️  {filename} already exists - skipped")
         else:
             file_path.write_text(content, encoding="utf-8")
-            print(f"✅ Создан файл: {filename}")
+            print(f"✅ File created: {filename}")
 
-    print("\n🎉 Инициализация завершена. Теперь вы можете редактировать цели и задачи.")
+    print("\n🎉 Initialization is complete. You can now edit goals and tasks.")
