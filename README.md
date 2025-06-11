@@ -26,7 +26,7 @@ It is a method for those who decide not just to live, but to set goals, comprehe
 Every day you do not just keep a file - you shape yourself, layer by layer, line by line.
 
 CPTD-DSL is a declaration of personal evolution.
-And if you write it, then you are in the game......
+And if you write, then you are in the game......
 
 ### **Official Documentation: CPTD System**
 
@@ -58,7 +58,7 @@ The system provides a full set of tools for structured task management.
     * **Progress Tracking:** The `progress:3/5` parameter visually shows movement towards the goal, which maintains motivation.
     * **Dependencies:** The ability to specify `depends:on:<id>` allows building logical chains of tasks where one action follows another.
 * **🗂 Build a Dynamic and Scalable System**
-    * **Daily Logs:** Maintaining daily files (`YYYY-MM-DD.md`) creates a rhythm and allows for storing a detailed work history.
+    * **Daily Logs:** Maintaining daily files (`YYYYMMDD_cptd.md`) creates a rhythm and allows for storing a detailed work history.
     * **Archiving:** Completed goals and projects are moved to an archive, which clears the workspace and helps focus on what's current.
 * **🧩 Flexibly Account for Everything Important**
     * **Roles and Assignees:** You can specify who is responsible for a task (`role:owner`, `role:other,Marina`).
