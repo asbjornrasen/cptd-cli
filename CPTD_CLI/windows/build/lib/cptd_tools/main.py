@@ -2,21 +2,21 @@ import argparse
 import importlib
 import sys
 import pkgutil
-import cptd_tools.commands  # используется для help
+import cptd_tools.commands  
 
 def list_available_commands():
     return [name for _, name, _ in pkgutil.iter_modules(cptd_tools.commands.__path__)]
 
 def main():
     parser = argparse.ArgumentParser(prog='cptd', description='CPTD CLI Tool')
-    parser.add_argument('command', help='Команда (parse, report, help, ...)')
+    parser.add_argument('command', help='commands (parse, report, help, ...)')
     args, unknown = parser.parse_known_args()
 
     if args.command == 'help':
-        print("\n Доступные команды:")
+        print("\n Available commands:")
         for name in list_available_commands():
             print(f"  - {name}")
-        print("\nПример: cptd report goals_cptd.md")
+        print("\nExample: cptd report goals_cptd.md")
         return
 
     try:
@@ -26,7 +26,7 @@ def main():
         # print(f'[debug] Модуль загружен: {module}')
         module.run(unknown)
     except Exception as e:
-        print(f'\n[!] Ошибка при выполнении команды: {args.command}')
+        print(f'\n[!] Error executing command: {args.command}')
         print(f'[trace] {type(e).__name__}: {e}')
         sys.exit(1)
 
