@@ -1,9 +1,9 @@
 Metadata-Version: 2.4
 Name: cptd
 Version: 1.0.0
-Summary: CPTD CLI — инструмент для работы с DSL-планировщиком
+Summary: CPTD CLI — DSL Scheduler Tool
 Author: Asbjorn Rasen
-Author-email: author@example.com
+Author-email: asbjornrasen@gmail.com
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
