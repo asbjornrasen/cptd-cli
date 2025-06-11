@@ -33,3 +33,20 @@ MHRPS: true
 SLMOC: true
 
 license: CC-BY-ND
+
+structure_profiles:
+  user:
+  - goals_cptd.md
+  - archive_cptd.md
+  - index.html
+  - user_manifest.cptd
+  - yyyymmdd_cptd.md
+
+  admin:
+  
+  minimal:
+ 
+
+uid: CPTD-2025-CRYPTO-TODO
+
+
