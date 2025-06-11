@@ -33,7 +33,7 @@ start:YYYYMMDD — Task start date.
 
 due:YYYYMMDD — Task deadline.
 
-depends:on:<id> — Indicates a dependency on another task.
+depends_on:<id> — Indicates a dependency on another task.
 
 role:other,<name> — The task is performed by another person.
 

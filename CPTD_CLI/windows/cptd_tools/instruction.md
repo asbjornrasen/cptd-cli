@@ -6,7 +6,7 @@ The following commands are available in the CPTD CLI:
 |--------------     |-------------------------------------------------------------------------|----------|
 | `help`            | Show active commands                                                    |  yes     |
 | `setpath`         | The path FOLDER PROJECT will be saved in ~/.cptd_config.json            |  yes     |
-| `init`            | project initialization, creation of structural files goals_cptd.md,     |  no      |
+| `init`            | project initialization, creation of structural files goals_cptd.md,     |  yes      |
 |                   | user_manifest.cptd, archive_cptd.md, yyyymmdd_cptd.md                   |          |
 | `generate_ignore  | create .cptdignore                                                      |  yes     |
 | `parse`           | Parse a CPTD file and display the task structure                        |  yes     |
