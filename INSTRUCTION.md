@@ -23,7 +23,7 @@ It is recommended to store all files in a single folder, organized by year.
 For a task in the CPTD system, the general format is as follows:
 
 ```
-[status][priority] task:Task Name start:YYYYMMDD due:YYYYMMDD id:Unique ID goals:Goal project:Project role:role,name depends:on:<DependencyID> method:method tags:tag1,tag2
+[status][priority] task:Task Name start:YYYYMMDD due:YYYYMMDD id:Unique ID role:role,name depends:on:<DependencyID> method:method tags:tag1,tag2
 ```
 Where:
 * `[status]` - indicates the state of the task (e.g., `[]` for active, `[X]` for completed, `[-]` for paused, `[!]` for canceled).
@@ -33,8 +33,6 @@ Where:
 * `start:YYYYMMDD` - task start date in `YYYYMMDD` format.
 * `due:YYYYMMDD` - task deadline.
 * `id:Unique ID` - a unique task identifier that should not be changed after creation. It is recommended to use the `Gxxx_Pxx_Txx` structure.
-* `goals:Goal` - to which global goal this task belongs.
-* `project:Project` - to which project within the goal the task belongs.
 * `role:role,name` - indicates who is performing the task if it's not you (e.g., `role:other,Marina`).
 * `depends:on:<DependencyID>` - indicates a dependency on another task by its ID.
 * `method:method` - method or tool for completing the task (e.g., `method:anki`).
@@ -61,7 +59,6 @@ This file is your control panel. Here, you describe all major goals and break th
 
 **Example:**
 
-Markdown
 
 ```
 ### [][A] goals:health id:G001 status:active progress:2/4
@@ -93,7 +90,6 @@ Each day, you create a new file in the `YYYYMMDD_cptd.md` format where you log t
 
 **Example of `20250601_cptd.md` file:**
 
-Markdown
 
 ```
 ----- DAILY -----
@@ -129,7 +125,7 @@ When a goal is fully achieved (all its projects and tasks are completed), it is 
 
 **Archive Example:**
 
-Markdown
+
 
 ```
 ### [X][A] goals:health start:2025-06-03 due:2025-06-06 progress:4/4 id:G001
