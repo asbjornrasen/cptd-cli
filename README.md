@@ -1,12 +1,3 @@
-## **📦 Community Contributions Welcome: Add Your Command to CPTD CLI or propose Your Commands**
-
-🛠️ Developers are welcome to propose new commands for inclusion in the CPTD DSL CLI.
-If you have an idea that fits the philosophy of the tool, feel free to open an issue or submit a pull request.
-
-Best regards, CryptoProtos team.
-
----
-
 ## **CryptoProtos Todo DSL**
 
 CPTD-DSL is a high-level domain-specific language (HLD-DSL) that implements the Structured Task Declaration Model (STDM) for activity and goal management. It is designed for declarative representation of goals, subgoals, and operational units (tasks, habits, events) using a human-machine readable (HMR) syntax.
