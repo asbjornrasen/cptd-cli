@@ -23,8 +23,35 @@ It is recommended to store all files in a single folder, organized by year.
 For a task in the CPTD system, the general format is as follows:
 
 ```
-[status][priority] task:Task Name start:YYYYMMDD due:YYYYMMDD id:Unique ID role:role,name depends:on:<DependencyID> method:method tags:tag1,tag2
+
+[status][priority] depends_on:<TaskID> task:Task Name start:YYYYMMDD end:YYYYMMDD due:YYYYMMDD  place:Location method:Tool role:role,name tags:tag1,tag2 id:UniqueID
+
 ```
+
+| Element            | Meaning                                                               |
+| ------------------ | --------------------------------------------------------------------- |
+| `depends_on:`      | ID of another task that this task depends on                          |
+| `[status]`         | Task status:                                                          |
+| `[]` — active,     |                                                                       |
+| `[X]` — completed, |                                                                       |
+| `[-]` — paused,    |                                                                       |
+| `[!]` — canceled   |                                                                       |
+| `[priority]`       | Task priority:                                                        |
+| `A` — urgent,      |                                                                       |
+| `B` — important,   |                                                                       |
+| `C` — desirable,   |                                                                       |
+| `D` — optional     |                                                                       |
+| `task:`            | Description of the task (what needs to be done)                       |
+| `start:`           | Start date of execution (format: `YYYYMMDD`)                          |
+| `end:`             | Completion date (if the task is finished)                             |
+| `due:`             | Deadline for completion                                               |
+| `place:`           | Location of execution (e.g., office, home, online)                    |
+| `method:`          | Method or tool used (e.g., anki, markdown, quizlet)                   |
+| `role:`            | Who performs the task (e.g., `role:other,Ivan`)                       |
+| `tags:`            | List of tags (e.g., `tags:work,urgent`) — for filtering and analytics |
+| `id:`              | Unique task identifier (e.g., `G001_P02_T05`)                         |
+
+
 Where:
 * `[status]` - indicates the state of the task (e.g., `[]` for active, `[X]` for completed, `[-]` for paused, `[!]` for canceled).
 * `[priority]` - optional but recommended attribute, which can be `[A]` (urgent), `[B]` (important), `[C]` (desirable), `[D]` (optional).
@@ -37,6 +64,11 @@ Where:
 * `depends:on:<DependencyID>` - indicates a dependency on another task by its ID.
 * `method:method` - method or tool for completing the task (e.g., `method:anki`).
 * `tags:tag1,tag2` - tags for filtering and sorting (e.g., `tags:focus,urgent`).
+
+## 📌 Rule:
+
+> **If a task depends on another (`depends_on:`), then `depends_on:` must come before `task:`.**
+> This emphasizes that the task cannot start until the other one is finished.
 
 **Examples of tasks from the documentation:**
 
@@ -105,17 +137,30 @@ progress:4/9
 []habit:Tidy up for 15 minutes
 
 -------FUTURE TASK--------------
-[*][A] start:2025-07-14 task:create backup server goals:192.150.0.120 project:server due:2025-07-16
-
-[*][A] start:2025-06-20 task:add new license goals:cryptoprotos project:cryptoprotosK method:server due:2025-06-25
+[*][A] start:2025-07-14 task:create backup server 192.150.0.120 due:2025-07-16
+[*][A] depends_on:G019_P02_T01 start:2025-06-20 task:add new license cryptoprotos method:server due:2025-06-25 id:G019
 
 --------TASK DAILY--------------
 
-[X] [A] task:eliminate sugar start:2025-06-01 end:2025-06-01 due:2025-06-01 id:G001_P01_T01
-[X] [B] task:call new client start:2025-06-01 due:2025-06-01 id:G002_P02_T01
-[X] [C] task:learn 20 words start:2025-06-01 due:2025-06-01 method:quizlet id:G003_P01_T01
-[]  [B] task:write May report start:2025-06-02 due:2025-06-02 id:G002_P01_T01
-[]  [A] task:go to bed before 23:00 start:2025-06-03 due:2025-06-03 id:G001_P02_T01
+[X][A] task:eliminate sugar start:2025-06-01 end:2025-06-01 due:2025-06-01 id:G001_P01_T01
+[X][B] task:call new client start:2025-06-01 due:2025-06-01 id:G002_P02_T01
+[X][C] task:learn 20 words start:2025-06-01 due:2025-06-01 method:quizlet id:G003_P01_T01
+[][B] depends_on:G001_P02_T01 task:write May report start:2025-06-02 due:2025-06-02 id:G002_P01_T01
+[][A] task:go to bed before 23:00 start:2025-06-03 due:2025-06-03 id:G001_P02_T01
+
+[][B]task:Buy groceries start:20250612 duration:1h place:store  
+[X][C]task:Pick up package from post office start:20250611 end:20250612 duration:30m place:post_office  
+[][A]task:Review team reports start:20250612 duration:2h place:office  
+
+[X][B]task:Study modal verbs start:20250608 end:20250612 duration:3d place:home id:G002_P01_T02  
+[][C]task:Take Quizlet test start:20250610 duration:20m method:online id:G002_P02_T02  
+[][B]task:Write an essay on "Mein Tag" start:20250612 duration:1.5h place:home id:G002_P03_T01  
+
+[][C]task:Make a dentist appointment start:20250612 method:phone  
+[X][C]task:Create a project backup start:20250612 end:20250612 duration:15m method:workstation  
+[][B]task:Prepare presentation slides start:20250612 duration:2h place:office  
+[][B]task:Learn 100 A2-level words start:20250611 duration:3d place:home id:G002_P02_T03  
+
 
 ```
 

@@ -31,11 +31,17 @@ progress:3/5 — Progress: 3 of 5 units completed.
 
 start:YYYYMMDD — Task start date.
 
+end:YYYYMMDD , added on [X] (end) - (CLI can do this on archive)
+
 due:YYYYMMDD — Task deadline.
 
 depends_on:<id> — Indicates a dependency on another task.
 
 role:other,<name> — The task is performed by another person.
+
+duration:2h — Estimated or actual time to complete the task (e.g. 30m, 2h, 1d).
+
+place:home — Specify the location where the task will be completed (e.g. office, street, online, home).
 
 method:anki — Method or tool for completion.
 
