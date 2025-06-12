@@ -1,0 +1,1 @@
+20250612 publishing the CPTD pre-release to Python's of pip repository. (pip install cptd)
