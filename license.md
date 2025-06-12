@@ -1,44 +1,71 @@
-Author: Asbjorn Rasen
-Contact: asbjornrasen@gmail.com
-Web: https://www.cryptoprotos.tech
-Date: May 29, 2025
-License: Custom License – “NoDerivs Free Use”
-Copyright © 2025 Asbjorn Rasen. All rights reserved.
-LICENSE TERMS (ENGLISH)
+ CPTD-DSL License v1.1 (2025-06-12)
 
-The CPTD-DSL language, including its syntax, formatting rules, hierarchical structure,
-naming conventions, and related documentation, is freely available for personal and
-commercial use in its original, unmodified form.
+Author	Asbjorn Rasen 
+Contact	asbjornrasen@gmail.com  
+Web	https://www.cryptoprotos.tech  
+Date	12 June 2025  
+Copyright	© 2025 Asbjorn Rasen. All rights reserved.  
+Trademark	“CPTD” and “CPTD-DSL” are unregistered   trademarks of Asbjorn Rasen.
 
-You are NOT permitted to:
+1 Scope
 
-    modify, adapt, translate, reverse-engineer, or extend the CPTD-DSL language;
+This license governs the official CPTD-DSL language specification:
+the formal grammar, reserved keywords, structural rules, naming conventions, and all canonical example files bundled with the specification.
 
-    create derivative domain-specific languages (DSLs), markup formats, frameworks, or tooling
-    based on CPTD-DSL or any part of its structure, terminology, or formal description.
+    Software, libraries, plug-ins, editors, converters, or other tools that merely use CPTD-DSL are not restricted by Sections 2 & 3. They may be released under any OSI-approved license of the author’s choice (MIT, BSD, GPL, etc.) provided they comply with §4 “Attribution” and do not claim to redefine the language.
 
-✅ Attribution is mandatory
+2 Permissions
 
-You may redistribute the full and unmodified specification and example files only if
-clear and prominent attribution is given to the original author:
-Asbjorn Rasen (https://www.cryptoprotos.tech).
+    Use – You may read, study, and apply the unmodified specification for personal, academic, educational, or commercial purposes.
 
-Attribution is required in all cases of usage, including but not limited to:
+    Unmodified redistribution – You may copy or redistribute the entire specification and examples verbatim (PDF, HTML, Markdown, print, etc.) under the conditions of §4.
 
-    Personal use — e.g., individual workflows, scripts, integrations
+    Implementation freedom – You may write and distribute software that parses, validates, generates, visualises, or otherwise works with CPTD-DSL documents.
 
-    Academic use — e.g., research papers, theses, citations
+    Translations – Non-derivative translations of the text are permitted when:
 
-    Educational use — e.g., courses, workshops, teaching materials
+        the original English version is bundled alongside, and
 
-    Commercial use — e.g., tools, apps, websites, paid products
+        §4 Attribution is kept intact, and
 
-No exceptions apply. Omission of author credit constitutes a license violation.
+        a note states “For reference only — English text prevails in case of conflict”.
 
-The use of CPTD-DSL as a basis for alternative DSLs, frameworks, or specifications
-is explicitly prohibited without prior written consent from the author.
-DISCLAIMER
+    Commercial support & hosting – Offering SaaS platforms, cloud storage, paid courses, books, or consulting based on CPTD-DSL is allowed, provided §4 is satisfied.
+
+3 Prohibitions
+
+    Forking / Dialects – You may not modify, extend, subset, or create alternative grammars, dialects, or “enhanced” versions of CPTD-DSL without prior written consent from the author.
+
+    Misrepresentation – You may not claim your modified grammar is “CPTD-DSL” or “fully compatible” unless it is the official grammar.
+
+    Trademark misuse – You may not use the names “CPTD” or “CPTD-DSL” in a way that implies official endorsement for a fork/dialect.
+
+    Removal of attribution – Stripping or hiding the author credit required by §4 is prohibited.
+
+4 Attribution (Strict Requirement)
+
+Every public copy of the specification (or excerpt thereof) must display, prominently and unambiguously, the following credit before the first heading or on the title page:
+
+    CPTD-DSL Specification
+    © 2025 Asbjorn Rasen — https://www.cryptoprotos.tech
+    Licensed under the CPTD-DSL License v1.1 – see full text for terms.
+
+This applies to all contexts: personal notes published online, academic papers, slide decks, course hand-outs, commercial documentation, etc.
+
+Failure to provide this credit invalidates the permission granted in §2.
+5 Disclaimer of Warranty
 
 CPTD-DSL is provided “as is” without warranty of any kind, express or implied.
-The author shall not be liable for any consequences, misinterpretations, data loss,
-or misuse resulting from the use of this language specification.
+The author is not liable for any damages, losses, or claims arising from its use.
+6 Obtaining Additional Permissions
+
+Want to propose an official extension, dialect, or branded integration?
+Send a concise request to asbjornrasen@gmail.com with:
+
+    purpose and scope of modification/branding;
+
+    expected licence of derived work;
+
+    target audience/commercial model (if any).
+
+A written reply will be given within 30 days.
