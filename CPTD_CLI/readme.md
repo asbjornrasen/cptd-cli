@@ -1,3 +1,6 @@
+To install CPTD DSL CLI on any computer, run in the terminal: pip install cptd
+After that, CPTD DSL CLI will be installed on your computer!
+
 ⚠️ The CLI is still under active development.  
 This is a **work in progress** and not intended for production use yet.  
 Features may change or break without notice.

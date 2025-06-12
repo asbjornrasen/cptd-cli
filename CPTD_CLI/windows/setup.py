@@ -1,6 +1,8 @@
 # setup.py — полноценный pip-инсталлятор CLI-команды cptd
 
 from setuptools import setup, find_packages
+from pathlib import Path
+
 
 setup(
     name='cptd',
@@ -10,6 +12,10 @@ setup(
     author_email='asbjornrasen@gmail.com',
     # packages=find_packages(include=['cptd_tools', 'cptd_tools.commands']),
     # заменяем
+    long_description=Path("README.md").read_text(encoding="utf-8"),
+    long_description_content_type='text/markdown',
+
+    
     packages=find_packages(),                 # без include=…
 
     include_package_data=True,
