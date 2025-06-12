@@ -74,7 +74,7 @@ Where:
 
 * Completed task with priority: `[X][A] task:eliminate sugar id:G001_P01_T01`.
 * Active task with dates and ID: `[] [B] task:write May report start:2025-06-02 due:2025-06-02 id:G002_P01_T01`.
-* Task with role and dependency specified: `[][C] task:attach form to report id:G002_P03_T02 depends:on:<G002_P03_T01>`.
+* Task with role and dependency specified: `[][C] depends_on: G002_P03_T01 task:attach form to report id:G002_P03_T02`.
 
 This format ensures clarity and machine readability, allowing for easy task tracking and management.
 ---
