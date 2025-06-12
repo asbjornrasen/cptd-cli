@@ -6,9 +6,9 @@ This section describes all the special words and symbols used in the system.
 
 [X] — Task completed
 
-[-] — Task is on pause
+[!] — Task is on pause
 
-[!] — Task is stopped or canceled
+[-] — Task is stopped or canceled
 
 goals: — Main goal — a major result (for a month, quarter, year).
 
