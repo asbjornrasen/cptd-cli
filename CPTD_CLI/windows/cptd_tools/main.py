@@ -1,3 +1,5 @@
+#main.py
+
 import argparse
 import importlib
 import sys
@@ -8,7 +10,12 @@ def list_available_commands():
     return [name for _, name, _ in pkgutil.iter_modules(cptd_tools.commands.__path__)]
 
 def main():
-    parser = argparse.ArgumentParser(prog='cptd', description='CPTD CLI Tool')
+    if len(sys.argv) == 1:
+        print("\n[ℹ] Usage: cptd <command> [args]")
+        print("     Run `cptd help` to see all available commands.")
+        return
+
+    parser = argparse.ArgumentParser(prog='cptd', description='CPTD CLI Tool', add_help=False)
     parser.add_argument('command', help='commands (parse, report, help, ...)')
     args, unknown = parser.parse_known_args()
 
@@ -21,12 +28,13 @@ def main():
 
     try:
         import_path = f'cptd_tools.commands.{args.command}'
-        # print(f'[debug] Импорт модуля: {import_path}')
         module = importlib.import_module(import_path)
-        # print(f'[debug] Модуль загружен: {module}')
         module.run(unknown)
+    except ModuleNotFoundError:
+        print(f"[!] Unknown command: {args.command}")
+        print("    Use `cptd help` to list available commands.")
     except Exception as e:
-        print(f'\n[!] Error executing command: {args.command}')
+        print(f"\n[!] Error executing command: {args.command}")
         print(f'[trace] {type(e).__name__}: {e}')
         sys.exit(1)
 

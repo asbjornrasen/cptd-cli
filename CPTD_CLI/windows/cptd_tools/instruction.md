@@ -6,10 +6,12 @@ The following commands are available in the CPTD CLI:
 |--------------     |-------------------------------------------------------------------------|----------|
 | `help`            | Show active commands                                                    |  yes     |
 | `setpath`         | The path FOLDER PROJECT will be saved in ~/.cptd_config.json            |  yes     |
-| `init`            | project initialization, creation of structural files goals_cptd.md,     |  yes      |
+| `init`            | project initialization, creation of structural files goals_cptd.md,     |  yes     |
 |                   | user_manifest.cptd, archive_cptd.md, yyyymmdd_cptd.md                   |          |
 | `generate_ignore  | create .cptdignore                                                      |  yes     |
 | `parse`           | Parse a CPTD file and display the task structure                        |  yes     |
+| `newcommand`      | Generates a template for a new command for the developer                |  yes     |
+| `yourcommand`     | Shows an example of how a template works with options                   |  yes     |
 | `filter`          | Filter tasks by status, type, priority, or date                         |  no      |
 | `report`          | Show task statistics (completed, remaining, etc.)                       |  no      |
 | `validate`        | Validate the structure of a CPTD file                                   |  no      |
