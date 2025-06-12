@@ -12,6 +12,7 @@ The following commands are available in the CPTD CLI:
 | `parse`           | Parse a CPTD file and display the task structure                        |  yes     |
 | `newcommand`      | Generates a template for a new command for the developer                |  yes     |
 | `yourcommand`     | Shows an example of how a template works with options                   |  yes     |
+| `command`         | Adding and Removing Custom Commands in CPTD CLI                         |  yes     |
 | `filter`          | Filter tasks by status, type, priority, or date                         |  no      |
 | `report`          | Show task statistics (completed, remaining, etc.)                       |  no      |
 | `validate`        | Validate the structure of a CPTD file                                   |  no      |

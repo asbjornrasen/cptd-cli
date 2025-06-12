@@ -10,6 +10,7 @@ cptd_tools/cptd_manifest.cptd
 cptd_tools/main.py
 cptd_tools/syntax_utils.py
 cptd_tools/commands/__init__.py
+cptd_tools/commands/command.py
 cptd_tools/commands/dashboard.py
 cptd_tools/commands/generate_ignore.py
 cptd_tools/commands/init.py
