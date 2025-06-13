@@ -6,7 +6,7 @@ from pathlib import Path
 
 setup(
     name='cptd',
-    version='1.0.0',
+    version='1.0.1',
     description='CPTD CLI — DSL Scheduler Tool',
     author='Asbjorn Rasen',
     author_email='asbjornrasen@gmail.com',

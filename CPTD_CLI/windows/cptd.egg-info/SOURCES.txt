@@ -17,7 +17,4 @@ cptd_tools/commands/generate_ignore.py
 cptd_tools/commands/init.py
 cptd_tools/commands/newcommand.py
 cptd_tools/commands/parse.py
-cptd_tools/commands/report.py
 cptd_tools/commands/setpath.py
-cptd_tools/commands/template.py
-cptd_tools/commands/yourcommand.py

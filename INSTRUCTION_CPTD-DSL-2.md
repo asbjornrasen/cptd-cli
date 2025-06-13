@@ -24,7 +24,7 @@ All active tasks and habits are tracked in `activ_cptd.md`.
 For a task in the CPTD system, the general format is as follows:
 
 ```
-[status][priority] depends_on:<TaskID> task:Task Name start:YYYYMMDD due:YYYYMMDD end:YYYYMMDD place:Location method:Tool role:role,name tags:tag1,tag2 id:UniqueID
+[status][priority] depends_on:<TaskID> task:Task Name start:YYYY-MM-DD due:YYYY-MM-DD end:YYYY-MM-DD place:Location method:Tool role:role,name tags:tag1,tag2 id:UniqueID
 ```
 
 |Element|Meaning|
