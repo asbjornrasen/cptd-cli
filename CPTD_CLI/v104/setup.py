@@ -6,8 +6,8 @@ from pathlib import Path
 
 setup(
     name='cptd',
-    version='1.0.3',
-    description='CPTD CLI — DSL Scheduler Tool',
+    version='1.0.4',
+    description='CPTD CLI',
     author='Asbjorn Rasen',
     author_email='asbjornrasen@gmail.com',
     # packages=find_packages(include=['cptd_tools', 'cptd_tools.commands']),
