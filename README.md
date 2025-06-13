@@ -1,7 +1,7 @@
 ## **CryptoProtos Todo DSL**
 
-To install CPTD DSL CLI on any computer, run in the terminal: pip install cptd
-After that, CPTD DSL CLI will be installed on your computer! (https://pypi.org/project/cptd/)
+To install CPTD DSL CLI on any computer, run in the terminal: pip install cptd  
+After that, CPTD DSL CLI will be installed on your computer! (https://pypi.org/project/cptd/)  
 
 CPTD-DSL is a high-level domain-specific language (HLD-DSL) that implements the Structured Task Declaration Model (STDM) for activity and goal management. It is designed for declarative representation of goals, subgoals, and operational units (tasks, habits, events) using a human-machine readable (HMR) syntax.
 
