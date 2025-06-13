@@ -57,6 +57,8 @@ def display_author_info(manifest: dict):
         print(f"🌐 GitHub   : {manifest['github']}")
     if "website" in manifest:
         print(f"🔗 Website  : {manifest['website']}")
+    if "license" in manifest:
+        print(f"🔑 License  : {manifest['license']}")
     print()
 
 def run(argv):

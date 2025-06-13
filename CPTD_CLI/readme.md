@@ -1,17 +1,18 @@
-To install CPTD DSL CLI on any computer, run in the terminal: pip install cptd
-After that, CPTD DSL CLI will be installed on your computer!
+To install CPTD CLI on any computer, run in the terminal: pip install cptd
+After that, CPTD CLI will be installed on your computer!
 
 ⚠️ The CLI is still under active development.  
 This is a **work in progress** and not intended for production use yet.  
 Features may change or break without notice.
 
 
-For Windows
-Install (CPTD_CLI\windows\): 
-pip install .
 
-Uninstall:
-pip uninstall -y cptd
+pip install cptd
+
+For Ubuntu|Debian
+
+pipx install cptd
+
 
 
 ------------------
@@ -21,7 +22,7 @@ If you have an idea that fits the philosophy of the tool, feel free to open an i
 
 Best regards, CryptoProtos team.
 
-## 🛠️ How to Propose a New Command for CPTD DSL CLI
+## 🛠️ How to Propose a New Command for CPTD CLI in oficial relize
 
 To have your command included in the **official CPTD DSL CLI release**, please follow these steps:
 

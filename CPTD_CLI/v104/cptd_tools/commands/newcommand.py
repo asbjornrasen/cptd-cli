@@ -74,6 +74,7 @@ def generate_yaml_manifest(name: str) -> str:
         email: asbjorn@example.com
         github: https://github.com/asbjornrasen
         website: https://asbjornrasen.dev
+        license: license.md
     """)
 
 
@@ -88,6 +89,7 @@ def generate_json_manifest(name: str) -> str:
         "email": "asbjorn@example.com",
         "github": "https://github.com/asbjornrasen",
         "website": "https://asbjornrasen.dev"
+        "license": "license.md"
     }, indent=2, ensure_ascii=False)
 
 
