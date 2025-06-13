@@ -1,10 +1,10 @@
 ## CPTD Manifest
 
-version: 1.0.0
-schema: CPTD-DSL-1
+version: 2.0.0
+schema: CPTD-DSL-2
 encoding: UTF-8
-created: 2025-06-04
-updated: 2025-06-04
+created: 2025-06-13
+updated: 2025-06-13
 
 project: CryptoProtos Todo DSL
 implementation: CPTD Interpreter & Viewer
@@ -32,7 +32,7 @@ ML-CLI: true
 MHRPS: true
 SLMOC: true
 
-license: CC-BY-ND
+license: license.md
 
 structure_profiles:
 @user
