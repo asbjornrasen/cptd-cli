@@ -1,6 +1,6 @@
-Metadata-Version: 2.4
+Metadata-Version: 2.1
 Name: cptd
-Version: 1.0.4
+Version: 1.0.5
 Summary: CPTD CLI
 Author: Asbjorn Rasen
 Author-email: asbjornrasen@gmail.com
@@ -9,15 +9,6 @@ Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.7
 Description-Content-Type: text/markdown
-Requires-Dist: argcomplete>=1.12.0
-Dynamic: author
-Dynamic: author-email
-Dynamic: classifier
-Dynamic: description
-Dynamic: description-content-type
-Dynamic: requires-dist
-Dynamic: requires-python
-Dynamic: summary
 
 ### **🔧 What is CPTD CLI?**
 
