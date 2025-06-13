@@ -12,4 +12,7 @@ progress:2/4
 
 [][A] task:make setpath support in all commands  start:2025-06-11 due:2025-06-14 id:G001_P01_T01 
 [X][A] task:buy domain name cptdcli.com start:2025-06-13 due:2025-06-19  id:G001_P03_T01
+[X][A] task:create new command for repositiry (gateway, complete) start:2025-06-13 end:2025-06-13
+[X][A] task:update command and add manifest check start:2025-06-13 end:2025-06-13
+
 
