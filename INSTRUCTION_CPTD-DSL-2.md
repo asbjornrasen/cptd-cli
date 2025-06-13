@@ -102,10 +102,6 @@ This file is your control panel. Here, you describe all major goals and break th
         [][A] task:request tax form id:G002_P03_T01 role:other,Marina
         [][C] task:attach form to report id:G002_P03_T02 depends:on:<G002_P03_T01>
         
-[X][A] task:write description of the CPTD CLI project start:2025-06-10 end:2025-06-10
-[X][B] task:check syntax of all tasks in activ_cptd.md start:2025-06-11 end:2025-06-11
-[X][C] task:reply to user email with installation questions start:2025-06-12 end:2025-06-12
-[X][A] task:upload CPTD-DSL-2 instruction to the server start:2025-06-13 end:2025-06-13
 
 ```
 
@@ -148,6 +144,11 @@ When a goal is fully achieved (all its projects and tasks are completed), it is 
     [X][] project:sleep start:2025-06-03 due:2025-06-06 progress:2/2 id:G001_P02
         [X][B] task:go to bed before 23:00 id:G001_P02_T01
         [X][C] task:don't use phone after 22:00 id:G001_P02_T02
+
+[X][A] task:write description of the CPTD CLI project start:2025-06-10 end:2025-06-10
+[X][B] task:check syntax of all tasks in activ_cptd.md start:2025-06-11 end:2025-06-11
+[X][C] task:reply to user email with installation questions start:2025-06-12 end:2025-06-12
+[X][A] task:upload CPTD-DSL-2 instruction to the server start:2025-06-13 end:2025-06-13
 ```
 
 ---
@@ -228,5 +229,3 @@ This section describes all the special words and symbols used in the system.
     
 
 ---
-
-Если нужно, могу также подготовить PDF-версию или HTML-документ на основе этой инструкции.
