@@ -1,4 +1,4 @@
-Metadata-Version: 2.4
+Metadata-Version: 2.1
 Name: cptd
 Version: 1.0.3
 Summary: CPTD CLI — DSL Scheduler Tool
@@ -9,15 +9,6 @@ Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.7
 Description-Content-Type: text/markdown
-Requires-Dist: argcomplete>=1.12.0
-Dynamic: author
-Dynamic: author-email
-Dynamic: classifier
-Dynamic: description
-Dynamic: description-content-type
-Dynamic: requires-dist
-Dynamic: requires-python
-Dynamic: summary
 
 ## **CryptoProtos Todo DSL**
 
