@@ -24,7 +24,7 @@ All active tasks and habits are tracked in `activ_cptd.md`.
 For a task in the CPTD system, the general format is as follows:
 
 ```
-[status][priority] depends_on:<TaskID> task:Task Name start:YYYYMMDD due:YYYYMMDD end:YYYYMMDD   place:Location method:Tool role:role,name tags:tag1,tag2 id:UniqueID
+[status][priority] depends_on:<TaskID> task:Task Name start:YYYYMMDD due:YYYYMMDD end:YYYYMMDD place:Location method:Tool role:role,name tags:tag1,tag2 id:UniqueID
 ```
 
 |Element|Meaning|
@@ -44,7 +44,7 @@ For a task in the CPTD system, the general format is as follows:
 |`start:`|Start date of execution (format: `YYYYMMDD`)|
 |`end:`|Completion date (if the task is finished)|
 |`due:`|Deadline for completion|
-|`place:`|Location of execution (e.g., office, home, online)|
+|`place:`|Task location (e.g., office, home, online)|
 |`method:`|Method or tool used (e.g., anki, markdown, quizlet)|
 |`role:`|Who performs the task (e.g., `role:other,Ivan`)|
 |`tags:`|List of tags (e.g., `tags:work,urgent`) — for filtering and analytics|
@@ -153,63 +153,7 @@ When a goal is fully achieved (all its projects and tasks are completed), it is 
 
 ---
 
-### 5. CPTD Dictionary of Terms
-
-This section describes all the special words and symbols used in the system.
-
-- `[]` — Task is active, not yet completed
-    
-- `[X]` — Task completed
-    
-- `[-]` — Task is on pause
-    
-- `[!]` — Task is stopped or canceled
-    
-
-**Keywords:**
-
-- `goals:` — Main goal — a major result (for a month, quarter, year).
-    
-- `project:` — Sub-goal or block within a goal.
-    
-- `task:` — A specific action that needs to be performed.
-    
-- `habit:` — A recurring behavior (daily, weekly, etc.).
-    
-
-**Priority markers:**
-
-- `A` — urgent
-    
-- `B` — important
-    
-- `C` — desirable
-    
-- `D` — optional
-    
-
-**Other terms:**
-
-- `id:G001_P01_T01` — Unique identifier. Do not change after creation.
-    
-- `progress:3/5` — Progress: 3 of 5 units completed.
-    
-- `start:YYYYMMDD` — Task start date.
-    
-- `due:YYYYMMDD` — Task deadline.
-    
-- `depends:on:<id>` — Indicates a dependency on another task.
-    
-- `role:other,<name>` — Task is performed by someone else.
-    
-- `method:anki` — Tool or method.
-    
-- `tags:focus,urgent` — Tags for sorting and filtering.
-    
-
----
-
-### 6. Recommendations for Maintaining Files
+### 5. Recommendations for Maintaining Files
 
 - **Structure:** Store all `.cptd.md` files in a separate directory, organized by year or project.
     
