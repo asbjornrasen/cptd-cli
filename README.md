@@ -1,4 +1,4 @@
-## **CryptoProtos Todo DSL**
+## **CryptoProtos Todo DSL and CPTD CLI**
 
 To install CPTD DSL CLI on any computer, run in the terminal: pip install cptd  
 After that, CPTD DSL CLI will be installed on your computer! (https://pypi.org/project/cptd/)  
