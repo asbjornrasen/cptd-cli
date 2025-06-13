@@ -165,7 +165,7 @@ When a goal is fully achieved (all its projects and tasks are completed), it is 
     
 - **Syntax:** Maintain a consistent order of parameters (`status priority start_date task id deadline...`) for readability.
     
-- **Dates:** Always use the `YYYYMMDD` format.
+- **Dates:** Always use the `YYYY-MM-DD` format.
     
 - **Active file:** Only use `activ_cptd.md` for tracking — daily files are deprecated in CPTD-DSL-2.
     
