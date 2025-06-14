@@ -64,32 +64,34 @@ def run(argv):
 def generate_yaml_manifest(name: str) -> str:
     return dedent(f"""\
         name: {name}
-        description: Опишите, что делает команда
+        description: Describe what this command does
         version: 1.0.0
+        target: all
         entrypoint: {name}.py
         dependencies:
-          - colorama
+          - example
 
-        author: Асбйорн Расен
-        email: asbjorn@example.com
-        github: https://github.com/asbjornrasen
-        website: https://asbjornrasen.dev
-        license: license.md
+        author: example
+        email: example@example.com
+        github: https://github.com/example
+        website: https://example.dev
+        license: example.md
     """)
 
 
 def generate_json_manifest(name: str) -> str:
     return json.dumps({
         "name": name,
-        "description": "Опишите, что делает команда",
+        "description": "Describe what this command does",
         "version": "1.0.0",
+        "target": "all",
         "entrypoint": f"{name}.py",
-        "dependencies": ["colorama"],
-        "author": "Асбйорн Расен",
-        "email": "asbjorn@example.com",
-        "github": "https://github.com/asbjornrasen",
-        "website": "https://asbjornrasen.dev",
-        "license": "license.md"
+        "dependencies": ["example"],
+        "author": "example",
+        "email": "example@example.com",
+        "github": "https://github.com/example",
+        "website": "https://example.dev",
+        "license": "example.md"
     }, indent=2, ensure_ascii=False)
 
 
@@ -115,6 +117,18 @@ def run(argv):
 
     with open(json_file, "w", encoding="utf-8") as f:
         f.write(generate_json_manifest(name))
+
+     # Copy create_command.md if exists
+    source_md = Path(__file__).parent.parent / "create_command.md"
+    target_md = Path("create_command.md")
+    print(f"[debug] Looking for guide at: {source_md.resolve()}")
+
+    if source_md.exists():
+        with open(source_md, "r", encoding="utf-8") as src, open(target_md, "w", encoding="utf-8") as dst:
+            dst.write(src.read())
+        print(f"[✔] Guide copied         : {target_md}")
+    else:
+        print("[!] create_command.md not found. Skipping copy.")
 
     print(f"[✔] Command template created: {py_file}")
     print(f"[✔] Manifest created     : {yaml_file}")

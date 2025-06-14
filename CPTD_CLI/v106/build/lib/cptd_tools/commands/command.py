@@ -5,8 +5,16 @@ import shutil
 import subprocess
 import sys
 import json
-import yaml
+import pkgutil
 from pathlib import Path
+
+try:
+    import yaml
+except ImportError:
+    print("[•] Missing dependency: pyyaml. Installing...")
+    subprocess.run([sys.executable, "-m", "pip", "install", "pyyaml"], check=True)
+    import yaml
+
 import cptd_tools.commands
 
 SYNTAX = {
@@ -66,7 +74,8 @@ def run(argv):
     parser.add_argument('--add', help="Path to the .py file to add")
     parser.add_argument('--with-deps', action='store_true', help="Automatically install dependencies from manifest")
     parser.add_argument('--del', dest="del_command", help="Name of the command file to delete")
-    args = parser.parse_args(argv)
+    args, extra = parser.parse_known_args(argv)
+
 
     commands_dir = Path(cptd_tools.commands.__file__).parent
 
@@ -122,6 +131,14 @@ def run(argv):
         target.unlink()
         print(f"[-] Command deleted: {target}")
 
+    elif '--list' in extra:
+        print("\n Available commands:")
+        for _, name, _ in pkgutil.iter_modules(cptd_tools.commands.__path__):
+            print(f"  - {name}")
+        print()
+
+
     else:
         print("[!] Please specify either --add or --del.")
+
 

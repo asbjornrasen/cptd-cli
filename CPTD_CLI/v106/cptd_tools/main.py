@@ -23,7 +23,7 @@ def main():
         print("\n Available commands:")
         for name in list_available_commands():
             print(f"  - {name}")
-        print("\nExample: cptd report goals_cptd.md")
+        print("\nExample: cptd newcommand --help")
         return
 
     try:

@@ -3,29 +3,23 @@
 
 Thank you for your interest in developing a command for the **CPTD CLI**—a declarative system for managing goals, projects, and tasks. Below are the rules and templates you must follow when creating a command.
 
-# 📦 `command` — Manage CLI Commands in CPTD CLI
-
-The `cptd command` command allows you to **add** and **delete** custom CLI commands within the CPTD CLI system by directly interacting with the installed `cptd_tools/commands` directory.
-
 ---
 
-## 🔹 Syntax
+## 📁 1. Where to Create the Command File
 
-```bash
-cptd command --add <path_to_file.py>
-cptd command --del <filename.py>
-```
----
-
-## 📁 1. How to Create the Command File and Manifest Files
-
-Generate a template and  automatically:
+Generate a template automatically:
 
 ```bash
 cptd newcommand --name yourcommand
 ```
----
 
+📄 Example:
+
+```
+commands/mycommand.py
+```
+
+---
 
 ## 📦 2. Mandatory Elements of a Command
 
@@ -140,24 +134,14 @@ def run(argv):
 ## 🧪 4. Testing Your Command
 
 ```bash
-# → add your command into CLI
-cptd command --add yourcommand.py
-
-# → should list your command
 cptd list
+# → should list your command
 
-# → prints help via SYNTAX
 cptd yourcommand --help
+# → prints help via SYNTAX
 
-# → executes the command
 cptd yourcommand --input ./tasks.md --flag
-
-```
-
-If you need you may delete your command:
-
-```bash
-cptd command --del yourcommand.py
+# → executes the command
 ```
 
 ---
