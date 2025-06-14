@@ -3,6 +3,49 @@
 
 Thank you for your interest in developing a command for the **CPTD CLI**—a declarative system for managing goals, projects, and tasks. Below are the rules and templates you must follow when creating a command.
 
+
+
+
+## ⚠️ Rules for Command Authors
+
+### ❌ Do NOT include auto-installation of dependencies in your command code
+
+You **must not** use logic that installs modules dynamically inside your Python scripts. This kind of code is **strictly forbidden** and will **fail validation**:
+
+```python
+try:
+    import yaml
+except ImportError:
+    print("[\u2022] Missing dependency: pyyaml. Installing...")
+    subprocess.run([sys.executable, "-m", "pip", "install", "pyyaml"], check=True)
+    import yaml
+```
+
+Such code introduces hidden behavior, makes dependency tracking unreliable, and compromises security and reproducibility.
+
+---
+
+### ✅ Declare all dependencies in the manifest
+
+Instead, **list all required packages** in the command’s manifest file:
+
+```yaml
+name: yourcommand
+description: Description of your command
+version: 1.0
+entrypoint: yourcommand.py
+dependencies:
+  - pyyaml
+author: Your Name
+email: your@email.com
+```
+
+The CPTD CLI will automatically install the declared dependencies when the command is added using `--with-deps`.
+
+---
+
+This ensures a **clean**, **secure**, and **predictable** environment across all CPTD-based systems.
+
 # 📦 `command` — Manage CLI Commands in CPTD CLI
 
 The `cptd command` command allows you to **add** and **delete** custom CLI commands within the CPTD CLI system by directly interacting with the installed `cptd_tools/commands` directory.

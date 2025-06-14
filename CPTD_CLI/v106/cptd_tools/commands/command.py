@@ -69,6 +69,16 @@ def display_author_info(manifest: dict):
         print(f"🔑 License  : {manifest['license']}")
     print()
 
+def contains_forbidden_install_code(py_file: Path) -> bool:
+    with open(py_file, encoding='utf-8') as f:
+        content = f.read()
+    forbidden_snippets = [
+        'subprocess.run([sys.executable, "-m", "pip", "install"',
+        'subprocess.call([sys.executable, "-m", "pip", "install"',
+    ]
+    return any(snippet in content for snippet in forbidden_snippets)
+
+
 def run(argv):
     parser = argparse.ArgumentParser(description="Add or delete CLI command files")
     parser.add_argument('--add', help="Path to the .py file to add")
@@ -87,6 +97,12 @@ def run(argv):
         if not src.name.endswith(".py"):
             print("[!] Only .py files are allowed")
             return
+        
+        if contains_forbidden_install_code(src):
+            print(f"[⛔] Forbidden code detected in '{src.name}': auto-installation of modules is not allowed.")
+            print("    Please remove dynamic installation code (e.g., pip install) and use a manifest instead.")
+            return
+
 
         dest = commands_dir / src.name
         shutil.copy(src, dest)
