@@ -1,0 +1,53 @@
+## CPTD Manifest
+
+version: 1.0.0
+schema: CPTD-DSL-1
+encoding: UTF-8
+created: 2025-06-04
+updated: 2025-06-04
+
+project: CryptoProtos Todo DSL
+implementation: CPTD Interpreter & Viewer
+name: Rasen Asbjorn
+email: asbjornrasen@gmail.com
+role: author
+
+description:"This manifest describes the properties and metadata of the current CPTD structure. It is used to identify the DSL version, author, creation date, and programmatic compatibility. It is part of the declarative model and must accompany all CPTD project files."
+
+#compatibility
+
+vcs: true
+human_readable: true
+machine_readable: true
+cli_ready: true
+ui_ready: true
+
+#standards
+
+HLD-DSL: true
+EAML: true
+DLRE: true
+SPTM: true
+ML-CLI: true
+MHRPS: true
+SLMOC: true
+
+license: CC-BY-ND
+
+structure_profiles:
+@user
+- goals_cptd.md
+- archive_cptd.md
+- index.html
+- user_manifest.cptd
+- yyyymmdd_cptd.md
+
+@admin
+
+@minimal
+
+ 
+
+uid: CPTD-2025-CRYPTO-TODO
+
+

@@ -3,3 +3,4 @@
 20250613 update pip installer to CPTD-DSL-2 v cptd cli 1.0.1
 20250613 update pip installer to CPTD-DSL-2 v cptd cli 1.0.2 (edit error dashboard)
 20250613 update pip installer to CPTD-DSL-2 v cptd cli 1.0.4 (edit error init and dashboard)
+20250613 update pip installer to CPTD-DSL-2 v cptd cli 1.0.5 (edit error init and dashboard)

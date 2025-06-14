@@ -1,0 +1,2 @@
+[console_scripts]
+cptd = cptd_tools.main:main
