@@ -81,6 +81,26 @@ This enables rapid prototyping, testing, and cleanup without restarting or rebui
 
     ⚖ Transparency: All code is open, modular, and auditable.
 
+🆓 6. Open Source and Public Repository
+
+CPTD CLI is a free and open-source project.
+Its full source code is available in the public repository:
+🔗 https://github.com/asbjornrasen/cptd-dsl
+
+This guarantees full transparency, increases trust and security, and allows anyone to inspect, contribute to, or fork the system.
+By being open, CPTD ensures long-term independence and verifiability.
+🚀 Why It Matters
+
+    🎯 Flexibility: Adapt CLI to any workflow — from license checks to complex automation.
+
+    🧩 Scalability: From solo developers to enterprise environments.
+
+    🛠 Extensibility: Build, share, and integrate commands with ease.
+
+    🔐 Security: Strict validation at all stages — development, execution, and community inclusion.
+
+    ⚖ Transparency: All logic is local, auditable, and publicly visible.
+
 ✅ Summary
 
     CPTD CLI is more than a tool — it is a foundation for building, validating, and exchanging smart operational utilities.

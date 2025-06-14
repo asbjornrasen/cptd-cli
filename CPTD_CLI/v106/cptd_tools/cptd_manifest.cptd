@@ -11,8 +11,9 @@ implementation: Python,Java
 name: Asbjorn Rasen
 email: asbjornrasen@gmail.com
 role: author
-repo: https://github.com/asbjornrasen
+repo: https://github.com/asbjornrasen/cptd-dsl
 pip: https://pypi.org/project/cptd/
+web: https://www.cptdcli.com
 
 #compatibility
 
