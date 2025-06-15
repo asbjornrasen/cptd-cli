@@ -10,6 +10,9 @@ from cptd_tools.syntax_utils import print_help
 TEMPLATE_MAIN = """
 # main.py — CPTD CLI Command
 
+from cptd_tools.os_guard import ensure_compatible
+ensure_compatible(__file__)  # OS check on startup
+
 import argparse
 from pathlib import Path
 from cptd_tools.syntax_utils import print_help
@@ -69,6 +72,80 @@ def run(argv):
     if args.flag:
         print("[✔] Flag activated")
 """.strip()
+
+TEMPLATE_SINGLE = '''
+# main.py — CPTD CLI Command (Single-file version)
+
+from cptd_tools.os_guard import ensure_compatible
+ensure_compatible(__file__)  # OS check on startup
+
+import argparse
+from pathlib import Path
+from cptd_tools.syntax_utils import print_help
+
+SYNTAX = {
+    "name": "yourcommand",
+    "description": "Single-file CLI command with embedded logic",
+    "usage": "cptd yourcommand --input <path> [--flag]",
+    "arguments": [
+        {
+            "name": "--input",
+            "required": True,
+            "help": "Path to the input file or folder"
+        },
+        {
+            "name": "--flag",
+            "required": False,
+            "help": "Optional flag"
+        }
+    ],
+    "examples": [
+        "cptd yourcommand --input file.cptd",
+        "cptd yourcommand --input folder --flag"
+    ]
+}
+
+def run(argv):
+    if "--help" in argv or "-h" in argv:
+        print_help(SYNTAX)
+        return
+
+    parser = argparse.ArgumentParser(description=SYNTAX["description"], add_help=False)
+    parser.add_argument('--input', type=Path, required=True, help='Path to the input')
+    parser.add_argument('--flag', action='store_true', help='Optional flag')
+
+    try:
+        args = parser.parse_args(argv)
+    except Exception as e:
+        print(f"[!] Argument error: {e}")
+        print_help(SYNTAX)
+        return
+
+    if not args.input.exists():
+        print(f"[!] Input path does not exist: {args.input}")
+        return
+
+    print(f"[✔] Input received: {args.input}")
+    process()
+    handle()
+    start()
+    end()
+    if args.flag:
+        print("[✔] Flag activated")
+
+def process():
+    print("[util.onecommand] Processing...")
+
+def handle():
+    print("[util.twocommand] Handling...")
+
+def start():
+    print("[service.onecommand] Service started.")
+
+def end():
+    print("[service.twocommand] Service ended.")
+'''.strip()
+
 
 UTIL_ONE = """
 def process():
@@ -146,7 +223,7 @@ def create_examples():
     # Project_two — заглушка
     base2 = Path("Project_two/yourcommand")
     write_structure(base2, {
-        "main.py": "# minimal CLI entry\nprint('[twocommand] run')",
+        "main.py": TEMPLATE_SINGLE,
         "manifest.yaml": generate_yaml_manifest(),
         "manifest.json": generate_json_manifest(),
         "__init__.py": ""

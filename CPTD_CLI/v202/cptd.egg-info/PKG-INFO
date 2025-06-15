@@ -278,6 +278,47 @@ if args.flag:
 
 ---
 
+What to add to every command:
+---
+
+At the very beginning of your `yourcommand.py` file, before any other imports, add:
+
+
+from cptd_tools.os_guard import ensure_compatible
+ensure_compatible(__file__)
+
+
+What this call does:
+
+* It reads the `manifest.yaml` or `manifest.json` file located next to the command file.
+* It checks the `target` field.
+* If the current operating system does not match the `target` value:
+
+  * It prints a message,  
+  * Deletes the command folder,  
+  * Exits the execution using `sys.exit(1)`.  
+
+Example beginning of a command:    
+
+
+from cptd_tools.os_guard import ensure_compatible
+ensure_compatible(__file__)  # ← this line is mandatory
+
+from colorama import Fore  
+from cptd_tools.syntax_utils import print_help  
+
+
+Why this is important:
+
+Even though `command --add` already filters commands by operating system, calling `ensure_compatible(__file__)`:
+
+* Guarantees protection on every run, even if the command was manually added to the CLI.
+* Automatically removes the command at runtime if the system is not compatible.
+* Makes each command self-contained and secure.
+
+
+---
+
 Testing or Add Your Command:
 ---
 
