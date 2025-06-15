@@ -1,0 +1,13 @@
+name: test
+description: Describe what this command does
+version: 1.0.0
+target: all
+entrypoint: about.py
+dependencies:
+  - example
+
+author: example
+email: example@example.com
+github: https://github.com/example
+website: https://example.dev
+license: example.md
