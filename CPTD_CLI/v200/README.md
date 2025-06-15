@@ -22,9 +22,9 @@ Developers can use the "cptd newcommand" template to get started instantly.
 
 Commands can be tested and debugged interactively during development using:
   
-cptd command --add yourcommand.zip — adds the command to the CLI system (only ZIP)
+cptd command --add yourcommand.zip (adds the command to the CLI system - only ZIP)
   
-cptd command --del yourcommand — removes the command  
+cptd command --del yourcommand  (removes the command)  
 
 This enables rapid prototyping, testing, and cleanup without restarting or rebuilding the system.
 
@@ -124,30 +124,33 @@ Sure. Here's the same content in plain English text, with all Markdown formattin
 ---
 
 How to Add a New Command to CPTD CLI
-
 ---
+
+To add your command to the CLI, run:
+
+cptd command --add yourcommand.zip
 
 Submission Format (ZIP ONLY)
 
 All CPTD CLI commands must be submitted as a `.zip` archive.
 
-Example of a Simple Command:
+Example of a Simple Command:  
 
-taskcleaner.zip
-├── main.py
-├── manifest.yaml
-└── manifest.json
+taskcleaner.zip  
+├── main.py  
+├── manifest.yaml  
+└── manifest.json  
 
-Example of a Project-Level Command with Subfolders:
+Example of a Project-Level Command with Subfolders:  
 
-taskmanager.zip
-├── main.py
-├── manifest.yaml
-├── manifest.json
-├── util/
-│   └── parser.py
-└── service/
-└── api.py
+taskmanager.zip  
+├── main.py  
+├── manifest.yaml  
+├── manifest.json  
+├── util/  
+│   └── parser.py  
+└── service/  
+└── api.py  
 
 Rules:
 
@@ -165,27 +168,27 @@ Mandatory Elements of a Command
 
 Each command must contain the following required elements:
 
-1. `SYNTAX` — Command Description:
+1. `SYNTAX` — Command Description:  
+  
+SYNTAX = {  
+"name": "yourcommand",  
+"description": "What this command does.",  
+"usage": "cptd yourcommand --input <path> \[--flag]",  
+"arguments": \[  
+{"name": "--input",  
+"required": True,  
+"help": "Path to input file"},  
+{"name": "--flag",  
+"required": False,  
+"help": "Optional flag"}  
+],  
+"examples": \[  
+"cptd yourcommand --input file.cptd",  
+"cptd yourcommand --input folder --flag"  
+]  
+}  
 
-SYNTAX = {
-"name": "yourcommand",
-"description": "What this command does.",
-"usage": "cptd yourcommand --input <path> \[--flag]",
-"arguments": \[
-{"name": "--input",
-"required": True,
-"help": "Path to input file"},
-{"name": "--flag",
-"required": False,
-"help": "Optional flag"}
-],
-"examples": \[
-"cptd yourcommand --input file.cptd",
-"cptd yourcommand --input folder --flag"
-]
-}
-
-2. `run(argv)` Function:
+2. `run(argv)` Function:  
 
 def run(argv):
 ...
@@ -194,43 +197,43 @@ This is the entry point invoked when the command is executed.
 
 3. `--help` Handling and Help Output:
 
-if "--help" in argv or "-h" in argv:
-print\_help(SYNTAX)
-return
+if "--help" in argv or "-h" in argv:  
+print\_help(SYNTAX)  
+return  
 
 This ensures unified help and autodocumentation support.
 
-4. Use of `print_help(SYNTAX)` on Errors:
+4. Use of `print_help(SYNTAX)` on Errors:  
 
-except Exception as e:
-print(f"\[!] Argument error: {e}")
-print\_help(SYNTAX)
-return
+except Exception as e:  
+print(f"\[!] Argument error: {e}")  
+print\_help(SYNTAX)  
+return  
 
-Recommended Template:
+Recommended Template:  
 
-from pathlib import Path
-import argparse
-from cptd\_tools.syntax\_utils import print\_help
+from pathlib import Path  
+import argparse  
+from cptd\_tools.syntax\_utils import print\_help  
 
-SYNTAX = {
-"name": "yourcommand",
-"description": "Describe what this command does.",
-"usage": "cptd yourcommand --input <path> \[--flag]",
+SYNTAX = {  
+"name": "yourcommand",  
+"description": "Describe what this command does.",  
+"usage": "cptd yourcommand --input <path> \[--flag]",  
 "arguments": \[
-{"name": "--input", "required": True, "help": "Path to the input file or folder"},
-{"name": "--flag", "required": False, "help": "Optional flag to control behavior"}
-],
-"examples": \[
-"cptd yourcommand --input file.cptd",
-"cptd yourcommand --input folder --flag"
-]
-}
+{"name": "--input", "required": True, "help": "Path to the input file or folder"},  
+{"name": "--flag", "required": False, "help": "Optional flag to control behavior"}  
+],  
+"examples": \[  
+"cptd yourcommand --input file.cptd",  
+"cptd yourcommand --input folder --flag"  
+]  
+}  
 
-def run(argv):
-if "--help" in argv or "-h" in argv:
-print\_help(SYNTAX)
-return
+def run(argv):  
+if "--help" in argv or "-h" in argv:  
+print\_help(SYNTAX)  
+return  
 
 ---
 parser = argparse.ArgumentParser(description=SYNTAX["description"], add_help=False)  
@@ -255,6 +258,7 @@ if args.flag:
 ---
 
 Testing or Add Your Command:
+---
 
 To add your command to the CLI, run:
 
@@ -275,6 +279,8 @@ cptd yourcommand
 To delete your command:
 
 cptd command --del yourcommand
+
+---
 
 Standards:
 
@@ -304,7 +310,10 @@ github: GitHub link
 website: Website (optional)  
 license: License (example: MIT, license.md, etc.)  
 
+---
+
 Ready? Submit Your Command to the Official CPTD CLI Repository:
+---
 
 1. Fork the repository:  
    [https://github.com/asbjornrasen/cptdcli-plugin](https://github.com/asbjornrasen/cptdcli-plugin)

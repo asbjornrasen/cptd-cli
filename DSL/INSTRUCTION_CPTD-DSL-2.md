@@ -11,7 +11,7 @@ It is recommended to store all files in a single folder, organized by year.
 📁 2025/
 ├── goals_cptd.md         ← general structure: goals, projects, tasks
 ├── archive_cptd.md       ← archive of all completed goals
-├── activ_cptd.md         ← single active task and habit log file
+├── active_cptd.md         ← single active task and habit log file
 ├── dictionary_cpdt.md    ← dictionary of all terms and parameters
 ├── user_manifest.cptd    ← user profile and settings
 ```
@@ -107,9 +107,9 @@ This file is your control panel. Here, you describe all major goals and break th
 
 ---
 
-### 3. Active File: `activ_cptd.md`
+### 3. Active File: `active_cptd.md`
 
-All current work is tracked in a single active file `activ_cptd.md`, which replaces daily logs.
+All current work is tracked in a single active file `active_cptd.md`, which replaces daily logs.
 
 **Structure:**
 
