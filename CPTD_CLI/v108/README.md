@@ -1,24 +1,3 @@
-Metadata-Version: 2.4
-Name: cptd
-Version: 1.0.7
-Summary: CPTD CLI
-Author: Asbjorn Rasen
-Author-email: asbjornrasen@gmail.com
-Classifier: Programming Language :: Python :: 3
-Classifier: License :: OSI Approved :: MIT License
-Classifier: Operating System :: OS Independent
-Requires-Python: >=3.7
-Description-Content-Type: text/markdown
-Requires-Dist: argcomplete>=1.12.0
-Dynamic: author
-Dynamic: author-email
-Dynamic: classifier
-Dynamic: description
-Dynamic: description-content-type
-Dynamic: requires-dist
-Dynamic: requires-python
-Dynamic: summary
-
 CPTD CLI
 
 CPTD CLI is not just a command-line tool.
@@ -42,8 +21,10 @@ Each command includes a manifest file (name, description, author, version, depen
 Developers can use the "cptd newcommand" template to get started instantly.
 
 Commands can be tested and debugged interactively during development using:
+  
 cptd command --add \<your\_command.py> — adds the command to the CLI system
-cptd command --del \<your\_command.py> — removes the command
+  
+cptd command --del \<your\_command.py> — removes the command  
 
 This enables rapid prototyping, testing, and cleanup without restarting or rebuilding the system.
 
