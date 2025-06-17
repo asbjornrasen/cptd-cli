@@ -19,6 +19,9 @@ All CPTD CLI commands must be submitted as a **`.zip` archive**.
     ├── main.py
     ├── manifest.yaml
     └── manifest.json
+    └── icon.png
+    └── icon.ico
+    
 ```
 
 ---
@@ -30,6 +33,8 @@ All CPTD CLI commands must be submitted as a **`.zip` archive**.
     ├── main.py
     ├── manifest.yaml
     ├── manifest.json
+    ├── icon.png
+    ├── icon.ico
     ├── util/
     │   └── parser.py
     └── service/
@@ -215,6 +220,64 @@ def run(argv):
     if args.flag:
         print("[✔] Flag is set.")
 ```
+
+
+Here is the English version of the icon requirements for CPTD CLI commands:
+
+---
+
+### ✅ 3.1 Mandatory `icon.png` Entry
+
+Every CPTD CLI command **must include** an icon, defined in both manifest files:
+
+```json
+"icon": "icon.png"
+```
+
+or
+
+```yaml
+icon: icon.png
+```
+
+The icon:
+
+* **must be included in the `.zip` archive** of the command;
+* must be accessible via the specified path — either at the project root or within a subfolder (e.g., `assets/icon.png`);
+* is used by CPTD system installers and graphical wrappers to create **application shortcuts and desktop entries** for Linux, Windows, and macOS.
+
+---
+
+### 📐 Recommended Icon Sizes
+
+To ensure proper display across platforms:
+
+| System  | Recommended Size     | Format |
+| ------- | -------------------- | ------ |
+| Linux   | 512x512 px           | PNG    |
+| Windows | 256x256 px (optimal) | PNG    |
+| macOS   | 512x512 px           | PNG    |
+
+> 💡 A square 512x512 PNG icon is recommended for universal compatibility across all systems.
+
+---
+
+### 📦 Example ZIP Structure with Icon
+
+```
+📦 yourcommand.zip
+├── main.py
+├── manifest.yaml
+├── manifest.json
+├── icon.png           ← required
+└── util/
+    └── helper.py
+```
+
+---
+
+Without `icon.png`, the command may be rejected from the official repository or fail to appear in system-level launchers and GUI integrations.
+
 
 ---
 
