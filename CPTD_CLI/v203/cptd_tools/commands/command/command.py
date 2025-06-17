@@ -25,7 +25,9 @@ SYNTAX = {
     "arguments": [
         {"name": "--add", "required": False, "help": "ZIP archive of the command folder to add"},
         {"name": "--with-deps", "required": False, "help": "Automatically install dependencies from manifest"},
-        {"name": "--del", "required": False, "help": "Command folder name to delete"}
+        {"name": "--del", "required": False, "help": "Command folder name to delete"},
+        {"name": "--allow-insecure", "required": False, "help": "Allow commands with dangerous code (e.g. pip install). Not recommended."}
+
     ],
     "examples": [
         "cptd command --add mycommand.zip --with-deps",
