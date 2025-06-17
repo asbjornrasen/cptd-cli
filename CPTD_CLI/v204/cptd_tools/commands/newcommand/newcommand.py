@@ -173,6 +173,7 @@ def generate_yaml_manifest() -> str:
         description: Demo CLI command with substructure
         version: 1.0.0
         target: all
+        icon:
         entrypoint: main.py
         dependencies:
           - example
@@ -189,6 +190,7 @@ def generate_json_manifest() -> str:
         "description": "Demo CLI command with substructure",
         "version": "1.0.0",
         "target": "all",
+        "icon":"",
         "entrypoint": "main.py",
         "dependencies": ["example"],
         "author": "example",

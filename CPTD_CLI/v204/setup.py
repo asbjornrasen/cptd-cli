@@ -6,10 +6,17 @@ from pathlib import Path
 
 setup(
     name='cptd',
-    version='2.0.1',
+    version='2.0.4',
     description='CPTD CLI',
     author='Asbjorn Rasen',
     author_email='asbjornrasen@gmail.com',
+    url='https://www.cptdcli.com',
+    project_urls={
+    "License": "https://creativecommons.org/licenses/by-nd/4.0/",
+    "Homepage": "https://www.cptdcli.com",
+    "Source": "https://github.com/asbjornrasen/cptd-dsl"
+    },
+    license="CC BY-ND 4.0",
     # packages=find_packages(include=['cptd_tools', 'cptd_tools.commands']),
     # заменяем
     long_description=Path("README.md").read_text(encoding="utf-8"),
@@ -28,22 +35,14 @@ setup(
         ]
     },
     install_requires=[
-        'argcomplete>=1.12.0'
+        'argcomplete>=1.12.0',
+        'PyYAML>=6.0'
     ],
     python_requires='>=3.7',
     classifiers=[
         'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: MIT License',
+        'License :: Other/Proprietary License',
         'Operating System :: OS Independent'
     ],
 )
 
-# УСТАНОВКА:
-#   pip install .
-# УДАЛЕНИЕ:
-#   pip uninstall cptd
-# ПОСЛЕ УСТАНОВКИ:
-#   cptd help
-
-# Если не работает: убедитесь, что Scripts/ в PATH:
-#   %APPDATA%\Python\PythonXY\Scripts

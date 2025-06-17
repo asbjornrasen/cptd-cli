@@ -118,6 +118,55 @@ except Exception as e:
     print_help(SYNTAX)
     return
 ```
+### ✅ 2.5 What to Add to Every Command
+
+
+---
+
+
+At the **very beginning** of your `yourcommand.py` file (before any other imports), add:
+
+```python
+from cptd_tools.os_guard import ensure_compatible
+ensure_compatible(__file__)
+```
+
+---
+
+## 📌 What This Call Does
+
+* Reads the `manifest.yaml` or `manifest.json` located next to the command file
+* Checks the `target` field
+* If the current OS **does not match** the target:
+
+  * Displays a warning message
+  * Deletes the command folder itself
+  * Exits execution with `sys.exit(1)`
+
+---
+
+## 🧪 Example: Command Start
+
+```python
+from cptd_tools.os_guard import ensure_compatible
+ensure_compatible(__file__)  # ← this line is mandatory
+
+from colorama import Fore
+from cptd_tools.syntax_utils import print_help
+...
+```
+
+---
+
+## 🧱 Why This Is Important
+
+Even though `command --add` already filters commands by OS, `ensure_compatible(__file__)`:
+
+* Ensures protection **on every execution**, even if the file was manually added to the CLI
+* Automatically removes the command if the system is incompatible
+* Makes each command **self-contained and secure**
+
+---
 
 ---
 
@@ -263,6 +312,7 @@ cptd command --del yourcommand
   "description": "example",
   "version": "1.0.0",
   "target": "Windows",
+  "icon": "icon.png"
   "entrypoint": "example.py",
   "dependencies": ["example"],
   "author": "example",
