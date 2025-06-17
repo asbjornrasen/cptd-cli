@@ -1,0 +1,43 @@
+## CPTD CLI Manifest
+
+version: 2.0.4
+schema: CPTD-DSL-2
+encoding: UTF-8
+created: 2025-06-04
+updated: 2025-06-17
+
+project: CPTD CLI
+implementation: Python,Java
+name: Asbjorn Rasen
+email: asbjornrasen@gmail.com
+role: author
+repo: https://github.com/asbjornrasen/cptd-dsl
+pip: https://pypi.org/project/cptd/
+web: https://www.cptdcli.com
+
+#compatibility
+
+Windows: true
+MacOS: true
+Linux: true
+
+vcs: true
+human_readable: true
+machine_readable: true
+cli_ready: true
+ui_ready: true
+
+#standards
+
+HLD-DSL: true
+EAML: true
+DLRE: true
+SPTM: true
+ML-CLI: true
+MHRPS: true
+SLMOC: true
+
+license: https://www.cptdcli.com/license.md
+
+
+

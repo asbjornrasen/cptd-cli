@@ -79,14 +79,11 @@ def install_dependencies_from_manifest(manifest_file: Path, auto_confirm: bool =
         print(f"[!] Failed to install dependencies: {e}")
 
 def run(argv):
-    parser = argparse.ArgumentParser(description="Add or delete CLI command folders")
+    parser.add_argument('--allow-insecure', action='store_true', help="Allow commands with pip/subprocess install (not recommended)")
     parser.add_argument('--add', help="Path to a ZIP archive containing the command folder")
     parser.add_argument('--with-deps', action='store_true', help="Automatically install dependencies from manifest")
     parser.add_argument('--del', dest="del_command", help="Name of the command folder to delete")
-    parser.add_argument('--allow-insecure', action='store_true',
-        help="Allow commands with pip/subprocess install (not recommended)")
     args = parser.parse_args(argv)
-
 
     commands_dir = Path(cptd_tools.commands.__file__).parent
 
