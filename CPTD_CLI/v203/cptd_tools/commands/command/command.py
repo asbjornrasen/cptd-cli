@@ -43,13 +43,17 @@ def load_manifest(manifest_path: Path) -> dict:
     else:
         raise ValueError(f"Unsupported manifest format: {manifest_path.name}")
 
-def contains_forbidden_code(dir_path: Path) -> bool:
+def contains_forbidden_code(dir_path: Path, allow_insecure: bool = False) -> bool:
     for py_file in dir_path.rglob("*.py"):
         content = py_file.read_text(encoding='utf-8')
         if 'pip install' in content or ('subprocess' in content and 'install' in content):
+            if allow_insecure:
+                print(f"[⚠] Insecure code allowed by user in {py_file}. Proceeding anyway.")
+                continue
             print(f"[⛔] Forbidden code in {py_file}: auto-install is not allowed.")
             return True
     return False
+
 
 def install_dependencies_from_manifest(manifest_file: Path, auto_confirm: bool = False):
     try:
@@ -73,7 +77,7 @@ def install_dependencies_from_manifest(manifest_file: Path, auto_confirm: bool =
         print(f"[!] Failed to install dependencies: {e}")
 
 def run(argv):
-    parser = argparse.ArgumentParser(description="Add or delete CLI command folders")
+    parser.add_argument('--allow-insecure', action='store_true', help="Allow commands with pip/subprocess install (not recommended)")
     parser.add_argument('--add', help="Path to a ZIP archive containing the command folder")
     parser.add_argument('--with-deps', action='store_true', help="Automatically install dependencies from manifest")
     parser.add_argument('--del', dest="del_command", help="Name of the command folder to delete")
@@ -112,7 +116,7 @@ def run(argv):
             with zipfile.ZipFile(zip_path, 'r') as zip_ref:
                 zip_ref.extractall(target_dir)
 
-            if contains_forbidden_code(target_dir):
+            if contains_forbidden_code(target_dir, allow_insecure=args.allow_insecure):
                 shutil.rmtree(target_dir)
                 print("[!] Aborted. Command folder removed.")
                 return
