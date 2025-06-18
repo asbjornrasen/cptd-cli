@@ -6,7 +6,7 @@ from pathlib import Path
 
 setup(
     name='cptd',
-    version='2.0.3',
+    version='2.0.5',
     description='CPTD CLI',
     author='Asbjorn Rasen',
     author_email='asbjornrasen@gmail.com',
@@ -14,7 +14,7 @@ setup(
     project_urls={
     "License": "https://creativecommons.org/licenses/by-nd/4.0/",
     "Homepage": "https://www.cptdcli.com",
-    "Source": "https://github.com/asbjornrasen/cptd-dsl"
+    "Source": "https://github.com/asbjornrasen/cptd-cli"
     },
     license="CC BY-ND 4.0",
     # packages=find_packages(include=['cptd_tools', 'cptd_tools.commands']),
