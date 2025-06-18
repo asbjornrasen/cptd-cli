@@ -1,3 +1,35 @@
+Metadata-Version: 2.4
+Name: cptd
+Version: 2.0.5
+Summary: CPTD CLI
+Home-page: https://www.cptdcli.com
+Author: Asbjorn Rasen
+Author-email: asbjornrasen@gmail.com
+License: CC BY-ND 4.0
+Project-URL: License, https://creativecommons.org/licenses/by-nd/4.0/
+Project-URL: Homepage, https://www.cptdcli.com
+Project-URL: Source, https://github.com/asbjornrasen/cptd-cli
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: argcomplete>=1.12.0
+Requires-Dist: PyYAML>=6.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 ### **CPTD CLI** v2.0.5
 
 **CPTD CLI** is not just a command-line tool. It is an extensible management platform designed for:  
