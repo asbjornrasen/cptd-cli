@@ -1,0 +1,15 @@
+{
+  "name": "dsl",
+  "description": "Management of personal affairs through the declared DSL language",
+  "version": "1.0.0",
+  "target": "all",
+  "entrypoint": "dsl.py",
+  "dependencies": [
+    ""
+  ],
+  "author": "Asbjorn Rasen",
+  "email": "asbjornrasen@gmail.com",
+  "github": "https://github.com/asbjornrasen",
+  "website": "https://cptdcli.com",
+  "license": "https://cptdcli.com/license.md"
+}
