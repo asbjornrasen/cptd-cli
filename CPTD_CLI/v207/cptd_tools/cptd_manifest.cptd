@@ -1,6 +1,6 @@
 ## CPTD CLI Manifest
 
-version: 2.0.6
+version: 2.0.7
 schema: CPTD-DSL-2
 encoding: UTF-8
 created: 2025-06-04

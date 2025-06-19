@@ -1,5 +1,7 @@
 author: Asbjorn Rasen
-dependencies: []
+dependencies: [
+  -pyyaml
+]
 description: Interprets and runs .dsl scenario files using installed cptd commands.
 email: asbjornrasen@gmail.com
 entrypoint: main.py

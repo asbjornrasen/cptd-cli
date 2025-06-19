@@ -4,7 +4,7 @@ version: 1.0.0
 target: all
 entrypoint: command.py
 dependencies:
-
+ -pyyaml
 
 author: Asbjorn Rasen
 email: asbjornrasen@gmail.com

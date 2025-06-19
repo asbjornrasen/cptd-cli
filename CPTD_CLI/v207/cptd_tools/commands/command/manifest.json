@@ -1,10 +1,12 @@
 {
-  "name": "cpdsl",
-  "description": "Interprets and runs .dsl scenario files using installed cptd commands.",
+  "name": "command",
+  "description": "Add or remove commands",
   "version": "1.0.0",
-  "entrypoint": "main.py",
   "target": "all",
-  "dependencies": [],
+  "entrypoint": "command.py",
+  "dependencies": [
+    "pyyaml"
+  ],
   "author": "Asbjorn Rasen",
   "email": "asbjornrasen@gmail.com",
   "github": "https://github.com/asbjornrasen",
