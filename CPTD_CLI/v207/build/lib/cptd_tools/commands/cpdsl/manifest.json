@@ -1,0 +1,13 @@
+{
+  "name": "cpdsl",
+  "description": "Interprets and runs .dsl scenario files using installed cptd commands.",
+  "version": "1.0.0",
+  "entrypoint": "main.py",
+  "target": "all",
+  "dependencies": ["pyyaml"],
+  "author": "Asbjorn Rasen",
+  "email": "asbjornrasen@gmail.com",
+  "github": "https://github.com/asbjornrasen",
+  "website": "https://cptdcli.com",
+  "license": "https://cptdcli.com/license.md"
+}

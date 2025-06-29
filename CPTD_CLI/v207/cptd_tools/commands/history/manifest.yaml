@@ -1,0 +1,11 @@
+name: history
+description: View, search, clear, or export the CPTD CLI command history
+version: 1.0.0
+target: all
+entrypoint: main.py
+dependencies: []
+author: Asbjorn Rasen
+email: asbjornrasen@gmail.com
+github: https://github.com/asbjornrasen/cptd-cli
+website: https://cptdcli.com
+license: MIT

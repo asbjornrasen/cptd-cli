@@ -1,0 +1,13 @@
+author: Asbjorn Rasen
+dependencies: [
+  -pyyaml
+]
+description: Interprets and runs .dsl scenario files using installed cptd commands.
+email: asbjornrasen@gmail.com
+entrypoint: main.py
+github: https://github.com/asbjornrasen
+license: https://cptdcli.com/license.md
+name: cpdsl
+target: all
+version: 1.0.0
+website: https://cptdcli.com

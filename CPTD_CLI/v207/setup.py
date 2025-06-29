@@ -26,7 +26,7 @@ setup(
     packages=find_packages(),                 # без include=…
 
     include_package_data=True,
-    package_data={'cptd_tools': ['cptd_manifest.cptd', 'create_command.md']},
+    package_data={'cptd_tools': ['cptd_manifest.cptd', 'create_command.md', 'settings.json', 'paths.py']},
 
 
     entry_points={

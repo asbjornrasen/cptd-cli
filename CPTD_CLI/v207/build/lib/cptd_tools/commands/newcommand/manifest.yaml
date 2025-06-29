@@ -1,0 +1,13 @@
+name: newcommand
+description: Create templates and instruction for new command
+version: 1.0.0
+target: all
+entrypoint: newcommand.py
+dependencies:
+
+
+author: Asbjorn Rasen
+email: asbjornrasen@gmail.com
+github: https://github.com/asbjornrasen
+website: https://cptdcli.com
+license: https://cptdcli.com/license.md
