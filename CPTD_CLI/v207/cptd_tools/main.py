@@ -7,8 +7,6 @@ from pathlib import Path
 from datetime import datetime
 from cptd_tools.paths import HISTORY_FILE, SETTINGS_FILE
 
-# HISTORY_FILE = Path(__file__).parent / "history.txt"
-# SETTINGS_FILE = Path(__file__).parent / "settings.json"
 
 def get_history_line_limit():
     if SETTINGS_FILE.exists():
@@ -23,7 +21,7 @@ def get_history_line_limit():
 def enforce_history_limit():
     line_limit = get_history_line_limit()
     if not HISTORY_FILE.exists():
-        HISTORY_FILE.touch()  # создаёт пустой, если отсутствует
+        HISTORY_FILE.touch()  
         return
     lines = HISTORY_FILE.read_text(encoding="utf-8").splitlines()
     if len(lines) > line_limit:
@@ -104,10 +102,10 @@ def main():
 
     spec = importlib.util.spec_from_file_location(f"cptd_command_{args.command}", entry_file)
     module = importlib.util.module_from_spec(spec)
-    sys.path.insert(0, str(command_dir))  # для локальных импортов внутри команды
+    sys.path.insert(0, str(command_dir))  
     spec.loader.exec_module(module)
 
-    # Логируем полный вызов пользователя
+    
     log_history(f"{args.command} {' '.join(unknown)}")
 
     if hasattr(module, "run"):

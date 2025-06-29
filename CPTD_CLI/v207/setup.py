@@ -1,4 +1,4 @@
-# setup.py — полноценный pip-инсталлятор CLI-команды cptd
+# setup.py
 
 from setuptools import setup, find_packages
 from pathlib import Path
@@ -18,7 +18,7 @@ setup(
     },
     license="CC BY-ND 4.0",
     # packages=find_packages(include=['cptd_tools', 'cptd_tools.commands']),
-    # заменяем
+    
     long_description=Path("README.md").read_text(encoding="utf-8"),
     long_description_content_type='text/markdown',
 

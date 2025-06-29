@@ -5,9 +5,6 @@ import json
 from cptd_tools.paths import HISTORY_FILE, SETTINGS_FILE
 
 
-# HISTORY_FILE = Path(__file__).resolve().parents[2] / "history.txt"
-# SETTINGS_FILE = Path(__file__).resolve().parents[2] / "settings.json"   
-
 SYNTAX = {
     "name": "history",
     "description": "View, search, clear, or export the CPTD CLI command history",

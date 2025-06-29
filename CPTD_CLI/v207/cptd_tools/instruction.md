@@ -9,6 +9,7 @@ The following commands are available in the CPTD CLI:
 | `dsl`             | Management of personal affairs through the declared DSL language, maintainin         |  yes     |
 |                   | ToDo in markdown files                                                               |  yes     |
 | `newcommand`      | Generates a template for a new CLI command (for developers)                          |  yes     |
+| `history`         | View, search, clear, or export the CPTD CLI command history                          |  yes     |
 | `command`         | Add, delete, or list custom CLI commands                                             |  yes     |
 | `cpdsl`           | Interprets and executes .dsl registered CPTD CLI commands                            |  yes     |
 
