@@ -4,6 +4,14 @@ import importlib.util
 import json
 import yaml
 from pathlib import Path
+from datetime import datetime
+
+HISTORY_FILE = Path(__file__).parent / "history.txt"
+
+def log_history(command_line: str):
+    timestamp = datetime.now().isoformat(timespec="seconds")
+    with HISTORY_FILE.open("a", encoding="utf-8") as f:
+        f.write(f"[{timestamp}] {command_line}\n")
 
 # 📁 Каталог команд
 BASE_COMMANDS_PATH = Path(__file__).parent / "commands"
@@ -41,6 +49,9 @@ def list_available_commands():
     return result
 
 def main():
+    # Логируем полный вызов пользователя
+    log_history(" ".join(sys.argv))
+
     if len(sys.argv) == 1:
         print("\n[ℹ] Usage: cptd <command> [args]")
         print("     Run `cptd list` to see all available commands.")
