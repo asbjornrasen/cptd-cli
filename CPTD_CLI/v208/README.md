@@ -1,4 +1,4 @@
-### **CPTD CLI** v2.0.8
+### **CPTD CLI**
 
 **CPTD CLI** is not just a command-line tool. It is an extensible management platform designed for:  
 • Creating custom commands and extensions;  
@@ -79,7 +79,7 @@ The complete source code is available in the public repository:
 👉 **[https://github.com/asbjornrasen/cptd-cli](https://github.com/asbjornrasen/cptd-cli)**  
 This ensures full transparency, builds trust and security, and allows anyone to verify, modify, or copy the system. Thanks to its openness, CPTD guarantees independence and verifiability in the long term.
 
-## 🔹 List of Basic Commands for cptd v2.0.8
+## 🔹 List of Basic Commands for cptd
 
 The following commands are available in the CPTD CLI:
 
