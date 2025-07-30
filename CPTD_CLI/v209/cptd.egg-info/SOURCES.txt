@@ -36,6 +36,9 @@ cptd_tools/commands/dsl/manifest.yaml
 cptd_tools/commands/history/main.py
 cptd_tools/commands/history/manifest.json
 cptd_tools/commands/history/manifest.yaml
+cptd_tools/commands/install/main.py
+cptd_tools/commands/install/manifest.json
+cptd_tools/commands/install/manifest.yaml
 cptd_tools/commands/newcommand/manifest.json
 cptd_tools/commands/newcommand/manifest.yaml
 cptd_tools/commands/newcommand/newcommand.py
