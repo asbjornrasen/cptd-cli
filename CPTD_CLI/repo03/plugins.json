@@ -1,0 +1,12 @@
+[
+  {
+    "name": "portscanner",
+    "description": "Многопоточный TCP-порт-сканер",
+    "version": "1.0.0"
+  },
+  {
+    "name": "sayhello",
+    "description": "Приветствие через CLI",
+    "version": "1.1.2"
+  }
+]
