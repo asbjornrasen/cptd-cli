@@ -7,6 +7,8 @@ import sys
 import json
 import zipfile
 import tempfile
+import urllib.request
+import urllib.parse
 from pathlib import Path
 from cptd_tools.os_guard import is_compatible, _load_manifest
 import cptd_tools.commands
@@ -31,8 +33,9 @@ SYNTAX = {
     ],
     "examples": [
         "cptd command --add mycommand.zip --with-deps",
-        "cptd command --del mycommand"
-    ]
+        "cptd command --del mycommand",
+        "cptd command --add https://yourdomain.com/plugins/mycommand.zip --with-deps"
+        ]
 }
 
 def load_manifest(manifest_path: Path) -> dict:
@@ -91,12 +94,23 @@ def run(argv):
     commands_dir = Path(cptd_tools.commands.__file__).parent
 
     if args.add:
-        zip_path = Path(args.add)
-        if not zip_path.exists() or not zip_path.name.endswith(".zip"):
-            print("[!] Please provide a valid .zip archive.")
-            return
-
-        command_name = zip_path.stem
+        is_url = args.add.lower().startswith(("http://", "https://"))
+        if is_url:
+            tmp_zip = tempfile.NamedTemporaryFile(delete=False, suffix=".zip")
+            try:
+                print(f"[⇩] Downloading from: {args.add}")
+                urllib.request.urlretrieve(args.add, tmp_zip.name)
+                zip_path = Path(tmp_zip.name)
+                command_name = Path(urllib.parse.urlparse(args.add).path).stem
+            except Exception as e:
+                print(f"[!] Failed to download: {e}")
+                return
+        else:
+            zip_path = Path(args.add)
+            if not zip_path.exists() or not zip_path.name.endswith(".zip"):
+                print("[!] Please provide a valid .zip archive or URL.")
+                return
+            command_name = zip_path.stem
 
         # Проверка ОС ДО установки команды
         with zipfile.ZipFile(zip_path, 'r') as zip_ref, tempfile.TemporaryDirectory() as temp_dir:
@@ -160,7 +174,7 @@ def run(argv):
             print("[!] You cannot delete the 'command' command.")
             return
         shutil.rmtree(target)
-        print(f"[−] Command folder deleted: {args.del_command}")
+        print(f"[✓] Command folder deleted: {args.del_command}")
 
     else:
         print("[!] Please specify either --add <zip> or --del <name>")

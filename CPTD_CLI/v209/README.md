@@ -83,7 +83,7 @@ This ensures full transparency, builds trust and security, and allows anyone to 
 
 The following commands are available in the CPTD CLI:
 
-| Command       | Purpose                                                                                   | Available |
+| Command       | Purpose                                                                                    | Available |
 |---------------|--------------------------------------------------------------------------------------------|-----------|
 | `about`       | Shows information about CPTD CLI                                                           | yes       |
 | `list`        | Displays all available commands                                                            | yes       |
@@ -92,6 +92,7 @@ The following commands are available in the CPTD CLI:
 | `command`     | Add, delete, or list custom CLI commands                                                   | yes       |
 | `cpdsl`       | Interprets and executes `.dsl` registered CPTD CLI commands                                | yes       |
 | `history`     | View, search, clear, or export the CPTD CLI command history                                | yes       |
+| `install`     | Installing commands from the CPTD repository                                               | yes       |
 
 > ⚠️ Note: The CLI is under active development and not yet ready for production use.
 

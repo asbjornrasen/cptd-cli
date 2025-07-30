@@ -12,6 +12,7 @@ The following commands are available in the CPTD CLI:
 | `history`         | View, search, clear, or export the CPTD CLI command history                          |  yes     |
 | `command`         | Add, delete, or list custom CLI commands                                             |  yes     |
 | `cpdsl`           | Interprets and executes .dsl registered CPTD CLI commands                            |  yes     |
+| `install`         | Installing commands from the CPTD repository                                         |  yes     |
 
 
 > ⚠️ Note: The CLI is under active development and not yet ready for production use.
