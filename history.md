@@ -1,3 +1,15 @@
+08/01/2025
+
+Added new information to the readme.md for PIP
+
+Edited repository into command `cptd install` 
+
+REPOS = {
+    "windows": "https://raw.githubusercontent.com/asbjornrasen/cptdcli-plugin/main/community_plugin/windows",
+    "linux":   "https://raw.githubusercontent.com/asbjornrasen/cptdcli-plugin/main/community_plugin/linux",
+    "darwin":  "https://raw.githubusercontent.com/asbjornrasen/cptdcli-plugin/main/community_plugin/macos"
+}
+
 07/30/2025
 
 # ADD new command  `cptd install`:

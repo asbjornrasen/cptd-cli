@@ -460,7 +460,15 @@ Create readable, repeatable, testable scenarios that evolve with your project.
     
 2. Create branch: `feature/mycommand`
     
-3. Add ZIP: `community_plugin/yourcommand.zip`
+3. Add ZIP: `community_plugin/your_system/your_command.zip`
+
+  your_system:
+
+    linux/ — plugins designed for Linux OS.
+
+    macos/ — plugins compatible with macOS.
+
+    windows/ — plugins implemented for Windows.
     
 4. Make sure:
     

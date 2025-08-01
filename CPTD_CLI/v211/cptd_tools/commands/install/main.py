@@ -22,9 +22,9 @@ SYNTAX = {
 }
 
 REPOS = {
-    "windows": "https://www.cptdcli.com/repo01",
-    "linux":   "https://www.cptdcli.com/repo02",
-    "darwin":  "https://www.cptdcli.com/repo03"
+    "windows": "https://raw.githubusercontent.com/asbjornrasen/cptdcli-plugin/main/community_plugin/windows",
+    "linux":   "https://raw.githubusercontent.com/asbjornrasen/cptdcli-plugin/main/community_plugin/linux",
+    "darwin":  "https://raw.githubusercontent.com/asbjornrasen/cptdcli-plugin/main/community_plugin/macos"
 }
 
 def run(argv):

@@ -6,7 +6,7 @@ from pathlib import Path
 
 setup(
     name='cptd',
-    version='2.1.0',
+    version='2.1.1',
     description='CPTD CLI',
     author='Asbjorn Rasen',
     author_email='asbjornrasen@gmail.com',
