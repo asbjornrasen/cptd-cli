@@ -1,5 +1,7 @@
 ### **CPTD CLI**
 
+Install: pip install cptd
+
 **CPTD CLI** is not just a command-line tool. It is an extensible management platform designed for:  
 • Creating custom commands and extensions;  
 • Sharing commands between users;  
