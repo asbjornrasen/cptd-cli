@@ -1,3 +1,10 @@
+08/03/2025
+
+Edit readme.md
+
+add new Example code of command 
+edit newcommand.py
+
 08/01/2025
 
 Added new information to the readme.md for PIP

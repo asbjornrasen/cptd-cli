@@ -13,30 +13,18 @@ TEMPLATE_MAIN = """
 from cptd_tools.os_guard import ensure_compatible
 ensure_compatible(__file__)  # OS check on startup
 
-import argparse
+import sys
 from pathlib import Path
+import argparse
 from cptd_tools.syntax_utils import print_help
-
-from util.onecommand import process
-from util.twocommand import handle
-from service.service_one import start
-from service.service_two import end
 
 SYNTAX = {
     "name": "yourcommand",
-    "description": "Demo structure with submodules",
+    "description": "What the command does",
     "usage": "cptd yourcommand --input <path> [--flag]",
     "arguments": [
-        {
-            "name": "--input",
-            "required": True,
-            "help": "Path to the input file or folder"
-        },
-        {
-            "name": "--flag",
-            "required": False,
-            "help": "Optional flag"
-        }
+        {"name": "--input", "required": True, "help": "Path to input file"},
+        {"name": "--flag", "required": False, "help": "Optional flag"}
     ],
     "examples": [
         "cptd yourcommand --input file.cptd",
@@ -45,32 +33,44 @@ SYNTAX = {
 }
 
 def run(argv):
+    # The mandatory argument "add_help=False" disables argparse help and enables cptd help
+    prs = argparse.ArgumentParser("cptd yourcommand", add_help=False)
+
+    # Adding arguments
+    prs.add_argument('--input', type=Path, required=True, help='Path to input file')
+    prs.add_argument('--flag', action='store_true', help='Optional flag')
+
+    # Check if --help or -h is passed
     if "--help" in argv or "-h" in argv:
         print_help(SYNTAX)
         return
 
-    parser = argparse.ArgumentParser(description=SYNTAX["description"], add_help=False)
-    parser.add_argument('--input', type=Path, required=True, help='Path to the input')
-    parser.add_argument('--flag', action='store_true', help='Optional flag')
-
     try:
-        args = parser.parse_args(argv)
-    except Exception as e:
+        args = prs.parse_args(argv)
+    except argparse.ArgumentError as e:
         print(f"[!] Argument error: {e}")
         print_help(SYNTAX)
         return
 
+    # If the --input argument is passed
+    if args.input:
+        print(f"[✔] Path provided: {args.input}")
+        print(f"  Example of how to call this script with this argument: cptd yourcommand --input {args.input}")
+
+    # If the --flag argument is passed
+    if args.flag:
+        print("[✔] Flag is set")
+
+    # Checking file existence
     if not args.input.exists():
-        print(f"[!] Input path does not exist: {args.input}")
+        print(f"[!] Path does not exist:\n    {args.input}")
         return
 
-    print(f"[✔] Input received: {args.input}")
-    process()
-    handle()
-    start()
-    end()
-    if args.flag:
-        print("[✔] Flag activated")
+    print(f"[✔] Processing: {args.input}")
+
+if __name__ == "__main__":
+    run(sys.argv[1:])
+
 """.strip()
 
 TEMPLATE_SINGLE = '''
