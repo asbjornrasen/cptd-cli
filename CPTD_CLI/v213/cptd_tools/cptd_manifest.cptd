@@ -1,10 +1,10 @@
 ## CPTD CLI Manifest
 
-version: 2.1.2
+version: 2.1.3
 schema: CPTD-DSL-2
 encoding: UTF-8
 created: 2025-06-04
-updated: 2025-08-1
+updated: 2025-08-3
 
 project: CPTD CLI
 implementation: Python,Java

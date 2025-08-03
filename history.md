@@ -4,6 +4,7 @@ Edit readme.md
 
 add new Example code of command 
 edit newcommand.py
+edit install.py
 
 08/01/2025
 

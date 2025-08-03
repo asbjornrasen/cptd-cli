@@ -8,16 +8,20 @@ from cptd_tools.syntax_utils import print_help
 SYNTAX = {
     "name": "install",
     "description": "Installing commands from the CPTD repository",
-    "usage": "cptd install <name> [--with-deps] [--allow-insecure] | uninstall <name>",
+    "usage": "cptd install [--i] [--u] <name> [--with-deps] [--allow-insecure] | uninstall <name>",
     "arguments": [
         {"name": "<name>", "required": True, "help": "Command name (eg: portscanner)"},
+        {"name": "--i", "required": True, "help": "Install command"},
+        {"name": "--u", "required": True, "help": "Uninstall command"},
         {"name": "--with-deps", "required": False, "help": "Install dependencies (if any)"},
         {"name": "--allow-insecure", "required": False, "help": "Allow commands with dangerous code"},
         {"name": "--list", "required": False, "help": "Getting a list of available commands from the repository"},
     ],
     "examples": [
-        "cptd install portscanner --with-deps",
-        "cptd uninstall portscanner"
+        "cptd install --i portscanner --with-deps",
+        "cptd install --u portscanner",
+        "cptd install --list",
+        "cptd install --i scheduler --allow-insecure"
     ]
 }
 

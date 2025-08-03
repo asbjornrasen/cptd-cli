@@ -1,6 +1,6 @@
 {
   "name": "install",
-  "description": "Установка/удаление команд из репозитория CPTD",
+  "description": "Installing/Removing Commands from the CPTD Repository",
   "version": "1.0",
   "target": "all",
   "entrypoint": "main.py",
