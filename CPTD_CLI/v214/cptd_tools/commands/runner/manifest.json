@@ -1,0 +1,14 @@
+
+{
+  "name": "gitauto",
+  "description": "Run git commands defined in a YAML workflow file",
+  "version": "1.0.0",
+  "target": "all",
+  "entrypoint": "main.py",
+  "dependencies": ["pyyaml"],
+  "author": "Asbjorn Rasen",
+  "email": "asbjornrasen@gmail.com",
+  "github": "https://github.com/asbjornrasen",
+  "website": "https://cptdcli.com",
+  "license": "https://cptdcli.com/license.md"
+}
