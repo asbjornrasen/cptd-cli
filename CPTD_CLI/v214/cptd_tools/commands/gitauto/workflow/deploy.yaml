@@ -1,0 +1,15 @@
+
+name: "Sample Git Workflow"
+repo: "/path/to/your/repo"
+steps:
+  - name: "Pull latest"
+    command: "git pull origin main"
+
+  - name: "Add all"
+    command: "git add ."
+
+  - name: "Commit"
+    command: "git commit -m 'Automated commit'"
+
+  - name: "Push"
+    command: "git push origin main"
