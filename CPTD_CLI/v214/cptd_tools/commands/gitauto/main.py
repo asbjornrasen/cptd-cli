@@ -3,6 +3,7 @@ from pathlib import Path
 import argparse, yaml, subprocess, sys, shutil, json, os
 from cptd_tools.syntax_utils import print_help
 from util.runner import execute_workflow
+import textwrap
 
 SYNTAX = {
     "name": "gitauto",
@@ -59,8 +60,8 @@ def run(argv):
 
     try:
         args = parser.parse_args(argv)
-    except Exception as e:
-        print(f"[!] Argument error: {e}")
+    except SystemExit:
+        print("[!] Argument parsing failed.")
         print_help(SYNTAX)
         return
 
@@ -106,25 +107,29 @@ def run(argv):
         return
 
     
-    if "--example" in argv:
+    if args.example:
         example_path = Path.cwd() / "example.yaml"
-        example_content = """name: "Example Git Workflow"
-repo: "/path/to/your/repo"
-steps:
-- name: "Pull"
-    command: "git pull"
-    args: ["origin", "main"]
-- name: "Add"
-    command: "git add"
-    args: ["."]
-- name: "Commit"
-    command: "git commit"
-    args: ["-m", "Template commit"]
-- name: "Push"
-    command: "git push"
-    args: ["origin", "main"]
-"""
-        example_path.write_text(example_content)
+        example_content = textwrap.dedent("""\
+            name: "Example Git Workflow"
+            repo: '/path/to/your/repo'
+            steps:
+              - name: "Pull"
+                command: "git pull"
+                args: ["origin", "main"]
+
+              - name: "Add"
+                command: "git add"
+                args: ["."]
+
+              - name: "Commit"
+                command: "git commit"
+                args: ["-m", "Template commit"]
+
+              - name: "Push"
+                command: "git push"
+                args: ["origin", "main"]
+        """)
+        example_path.write_text(example_content, encoding="utf-8")
         print(f"[✔] Example written to: {example_path}")
         return
 

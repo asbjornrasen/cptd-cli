@@ -10,9 +10,6 @@ from cptd_tools.syntax_utils import print_help
 TEMPLATE_MAIN = """
 # main.py — CPTD CLI Command
 
-from cptd_tools.os_guard import ensure_compatible
-ensure_compatible(__file__)  # OS check on startup
-
 import sys
 from pathlib import Path
 import argparse
@@ -24,11 +21,12 @@ SYNTAX = {
     "usage": "cptd yourcommand --input <path> [--flag]",
     "arguments": [
         {"name": "--input", "required": True, "help": "Path to input file"},
-        {"name": "--flag", "required": False, "help": "Optional flag"}
+        {"name": "--flag", "required": False, "help": "Optional flag"},
+        {"name": "--example", "required": False, "help": "Example mode"}
     ],
     "examples": [
-        "cptd yourcommand --input file.cptd",
-        "cptd yourcommand --input folder --flag"
+        "cptd yourcommand --input file.cptd --flag",
+        "cptd yourcommand --input file.cptd --example"
     ]
 }
 
@@ -39,6 +37,7 @@ def run(argv):
     # Adding arguments
     prs.add_argument('--input', type=Path, required=True, help='Path to input file')
     prs.add_argument('--flag', action='store_true', help='Optional flag')
+    prs.add_argument('--example', action='store_true', help='Optional flag')
 
     # Check if --help or -h is passed
     if "--help" in argv or "-h" in argv:
@@ -47,27 +46,23 @@ def run(argv):
 
     try:
         args = prs.parse_args(argv)
-    except argparse.ArgumentError as e:
-        print(f"[!] Argument error: {e}")
+    except SystemExit:
+        print("[!] Argument parsing failed.")
         print_help(SYNTAX)
         return
 
-    # If the --input argument is passed
+    # If the --input argument is passed along with a value, for example: --input value, args.input evaluates to True and takes the value ,type=Path, type=str , type=int
     if args.input:
         print(f"[✔] Path provided: {args.input}")
-        print(f"  Example of how to call this script with this argument: cptd yourcommand --input {args.input}")
-
-    # If the --flag argument is passed
+     
+    # If the --flag argument is passed without a value, action='store_true'
     if args.flag:
         print("[✔] Flag is set")
-
-    # Checking file existence
-    if not args.input.exists():
-        print(f"[!] Path does not exist:\n    {args.input}")
-        return
-
-    print(f"[✔] Processing: {args.input}")
-
+        
+    # If the --example argument is passed without a value, action='store_true'
+    if args.example:
+        print("[✔] Example flag is set")
+        
 if __name__ == "__main__":
     run(sys.argv[1:])
 
@@ -76,12 +71,11 @@ if __name__ == "__main__":
 TEMPLATE_SINGLE = '''
 # main.py — CPTD CLI Command (Single-file version)
 
-from cptd_tools.os_guard import ensure_compatible
-ensure_compatible(__file__)  # OS check on startup
-
 import argparse
 from pathlib import Path
 from cptd_tools.syntax_utils import print_help
+import sys
+
 
 SYNTAX = {
     "name": "yourcommand",
@@ -97,6 +91,11 @@ SYNTAX = {
             "name": "--flag",
             "required": False,
             "help": "Optional flag"
+        },
+        {
+            "name": "--example",
+            "required": False,
+            "help": "Optional flag for demonstration"
         }
     ],
     "examples": [
@@ -113,6 +112,8 @@ def run(argv):
     parser = argparse.ArgumentParser(description=SYNTAX["description"], add_help=False)
     parser.add_argument('--input', type=Path, required=True, help='Path to the input')
     parser.add_argument('--flag', action='store_true', help='Optional flag')
+    parser.add_argument('--example', action='store_true', help='Optional flag')
+
 
     try:
         args = parser.parse_args(argv)
@@ -121,17 +122,17 @@ def run(argv):
         print_help(SYNTAX)
         return
 
-    if not args.input.exists():
-        print(f"[!] Input path does not exist: {args.input}")
-        return
-
-    print(f"[✔] Input received: {args.input}")
-    process()
-    handle()
-    start()
-    end()
+    # If the --input argument is passed along with a value, for example: --input value, args.input evaluates to True and takes the value ,type=Path, type=str , type=int
+    if args.input:
+        print(f"[✔] Path provided: {args.input}")
+     
+    # If the --flag argument is passed without a value, action='store_true'
     if args.flag:
-        print("[✔] Flag activated")
+        print("[✔] Flag is set")
+        
+    # If the --example argument is passed without a value, action='store_true'
+    if args.example:
+        print("[✔] Example flag is set")
 
 def process():
     print("[util.onecommand] Processing...")
@@ -144,6 +145,9 @@ def start():
 
 def end():
     print("[service.twocommand] Service ended.")
+
+if __name__ == "__main__":
+    run(sys.argv[1:])
 '''.strip()
 
 
@@ -210,7 +214,7 @@ def create_examples():
     # Project_one — с корректным main.py
     base1 = Path("Project_one/yourcommand")
     write_structure(base1, {
-        "main.py": TEMPLATE_MAIN,
+        "main.py": TEMPLATE_SINGLE,
         "manifest.yaml": generate_yaml_manifest(),
         "manifest.json": generate_json_manifest(),
         "util/onecommand.py": UTIL_ONE,
@@ -225,7 +229,7 @@ def create_examples():
     # Project_two — заглушка
     base2 = Path("Project_two/yourcommand")
     write_structure(base2, {
-        "main.py": TEMPLATE_SINGLE,
+        "main.py": TEMPLATE_MAIN,
         "manifest.yaml": generate_yaml_manifest(),
         "manifest.json": generate_json_manifest(),
         "__init__.py": ""

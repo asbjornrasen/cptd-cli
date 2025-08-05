@@ -13,6 +13,8 @@ The following commands are available in the CPTD CLI:
 | `command`         | Add, delete, or list custom CLI commands                                             |  yes     |
 | `cpdsl`           | Interprets and executes .dsl registered CPTD CLI commands                            |  yes     |
 | `install`         | Installing commands from the CPTD repository                                         |  yes     |
+| `gitauto`         | Run git commands defined in a YAML workflow file                                     |  yes     |
+| `runner`          | Run Bash,PowerShell commands defined in a YAML workflow file                         |  yes     |
 
 
 > ⚠️ Note: The CLI is under active development and not yet ready for production use.
