@@ -40,8 +40,9 @@ def print_help():
         print(f"  {ex}")
 
 def run(argv):
+    # Check if --help or -h is passed
     if "--help" in argv or "-h" in argv:
-        print_help()
+        print_help(SYNTAX)
         return
 
     parser = argparse.ArgumentParser(prog='cptd history', add_help=False)
@@ -116,4 +117,6 @@ def run(argv):
             print("[ℹ] History is empty.")
         return
 
-    print_help()
+
+if __name__ == "__main__":
+    run(sys.argv[1:])

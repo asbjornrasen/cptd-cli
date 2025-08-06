@@ -1,12 +1,12 @@
 
-from cptd_tools.os_guard import ensure_compatible
-ensure_compatible(__file__)
+# from cptd_tools.os_guard import ensure_compatible
+# ensure_compatible(__file__)
 
 from cptd_tools.syntax_utils import print_help
 import subprocess
 import argparse
 import yaml
-import os
+import os, sys
 from pathlib import Path
 
 SYNTAX = {
@@ -27,7 +27,8 @@ SYNTAX = {
 }
 
 def run(argv):
-    if "--help" in argv or "-h" in argv or not argv:
+    # Check if --help or -h is passed
+    if "--help" in argv or "-h" in argv:
         print_help(SYNTAX)
         return
 
@@ -141,3 +142,6 @@ def run(argv):
                 log(f"↷ {name:<25} [SKIPPED]")
             else:
                 log(f"✖ {name:<25} [FAILED]")
+                
+if __name__ == "__main__":
+    run(sys.argv[1:])

@@ -124,10 +124,16 @@ except Exception as e:
 ## 🧩 3. Recommended Template
 
 ```python
+# --- blocking launch if the system does not match the one specified in the manifest, uncomment, leave in this place. ----
+# from cptd_tools.os_guard import ensure_compatible
+# ensure_compatible(__file__)
+# --------------------------------------------------------------------------------
+
 import sys
 from pathlib import Path
 import argparse
 from cptd_tools.syntax_utils import print_help
+import time
 
 SYNTAX = {
     "name": "yourcommand",
@@ -144,7 +150,21 @@ SYNTAX = {
     ]
 }
 
+#----additional methods section----here you insert the logic of your command
+
+def test():
+    print("[test] Service started")
+    print("[test] Service is running...")
+    time.sleep(2)
+    print("[test] Service finished running")
+
+#---------------------------------
+
 def run(argv):
+    # Check if --help or -h is passed
+    if "--help" in argv or "-h" in argv:
+        print_help(SYNTAX)
+        return
     # The mandatory argument "add_help=False" disables argparse help and enables cptd help
     prs = argparse.ArgumentParser("cptd yourcommand", add_help=False)
 
@@ -153,10 +173,7 @@ def run(argv):
     prs.add_argument('--flag', action='store_true', help='Optional flag')
     prs.add_argument('--example', action='store_true', help='Optional flag')
 
-    # Check if --help or -h is passed
-    if "--help" in argv or "-h" in argv:
-        print_help(SYNTAX)
-        return
+
 
     try:
         args = prs.parse_args(argv)
@@ -168,6 +185,7 @@ def run(argv):
     # If the --input argument is passed along with a value, for example: --input value, args.input evaluates to True and takes the value ,type=Path, type=str , type=int
     if args.input:
         print(f"[✔] Path provided: {args.input}")
+        test()
      
     # If the --flag argument is passed without a value, action='store_true'
     if args.flag:
@@ -176,9 +194,11 @@ def run(argv):
     # If the --example argument is passed without a value, action='store_true'
     if args.example:
         print("[✔] Example flag is set")
-        
+
+# Do not specify in service files.        
 if __name__ == "__main__":
     run(sys.argv[1:])
+
 ```
 
 ---

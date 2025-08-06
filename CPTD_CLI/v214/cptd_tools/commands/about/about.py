@@ -3,6 +3,7 @@
 import cptd_tools
 from pathlib import Path
 from cptd_tools.syntax_utils import print_help
+import sys
 
 SYNTAX = {
     "name": "about",
@@ -32,3 +33,6 @@ def run(argv):
             print("  ", line)
 
     print("\n[✔] Manifest loaded from:", MANIFEST_FILE)
+
+if __name__ == "__main__":
+    run(sys.argv[1:])

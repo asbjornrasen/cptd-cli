@@ -20,6 +20,10 @@ SYNTAX = {
 }
 
 def run(argv):
+    # Check if --help or -h is passed
+    if "--help" in argv or "-h" in argv:
+        print_help(SYNTAX)
+        return
     # The mandatory argument "add_help=False" disables argparse help and enables cptd help
     prs = argparse.ArgumentParser("cptd yourcommand", add_help=False)
 
@@ -28,10 +32,7 @@ def run(argv):
     prs.add_argument('--flag', action='store_true', help='Optional flag')
     prs.add_argument('--example', action='store_true', help='Optional flag')
 
-    # Check if --help or -h is passed
-    if "--help" in argv or "-h" in argv:
-        print_help(SYNTAX)
-        return
+
 
     try:
         args = prs.parse_args(argv)

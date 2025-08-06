@@ -1,4 +1,4 @@
-# cptd_tools/commands/command.py
+# command.py
 
 import argparse
 import shutil
@@ -12,7 +12,8 @@ import urllib.parse
 from pathlib import Path
 from cptd_tools.os_guard import is_compatible, _load_manifest
 import cptd_tools.commands
-import platform  # обязательно в начале файла, если ещё нет
+import platform  
+from cptd_tools.syntax_utils import print_help
 
 try:
     import yaml
@@ -82,14 +83,16 @@ def install_dependencies_from_manifest(manifest_file: Path, auto_confirm: bool =
         print(f"[!] Failed to install dependencies: {e}")
 
 def run(argv):
-    parser = argparse.ArgumentParser(description="Add or delete CLI command folders")
+    if "--help" in argv or "-h" in argv:
+        print_help(SYNTAX)
+        return
+    parser = argparse.ArgumentParser(description="Add or delete CLI command folders", add_help=False)
     parser.add_argument('--add', help="Path to a ZIP archive containing the command folder")
     parser.add_argument('--with-deps', action='store_true', help="Automatically install dependencies from manifest")
     parser.add_argument('--del', dest="del_command", help="Name of the command folder to delete")
     parser.add_argument('--allow-insecure', action='store_true',
         help="Allow commands with pip/subprocess install (not recommended)")
     args = parser.parse_args(argv)
-
 
     commands_dir = Path(cptd_tools.commands.__file__).parent
 
@@ -112,7 +115,7 @@ def run(argv):
                 return
             command_name = zip_path.stem
 
-        # Проверка ОС ДО установки команды
+        
         with zipfile.ZipFile(zip_path, 'r') as zip_ref, tempfile.TemporaryDirectory() as temp_dir:
             zip_ref.extractall(temp_dir)
             temp_path = Path(temp_dir)
@@ -178,3 +181,6 @@ def run(argv):
 
     else:
         print("[!] Please specify either --add <zip> or --del <name>")
+
+if __name__ == "__main__":
+    run(sys.argv[1:])

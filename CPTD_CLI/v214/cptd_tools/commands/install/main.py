@@ -2,7 +2,7 @@ import argparse
 import subprocess
 import platform
 import urllib.request
-import json
+import json, sys
 from cptd_tools.syntax_utils import print_help
 
 SYNTAX = {
@@ -98,3 +98,6 @@ def run(argv):
         except Exception as e:
             print(f"[!] Failed to load list: {e}")
         return
+
+if __name__ == "__main__":
+    run(sys.argv[1:])

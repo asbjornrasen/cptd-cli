@@ -48,11 +48,6 @@ def get_base_dir():
 
 
 def modify_file(file_path: Path, predicate, action="remove"):
-    """Переносит/удаляет строки по предикату.
-
-    action = "keep"   → строка остаётся в исходном файле  
-    action = "remove" → строка вырезается из исходного файла
-    """
     lines  = file_path.read_text(encoding="utf-8").splitlines()
     result, moved = [], []
 
@@ -159,6 +154,7 @@ def dashboard(base: Path):
 
 
 def run(argv):
+    # Check if --help or -h is passed
     if "--help" in argv or "-h" in argv:
         print_help(SYNTAX)
         return
@@ -247,7 +243,6 @@ def run(argv):
         print(f"[x] Deleted lines matching '{query}': {len(moved)}")
         return
 
-    # ─────────────────── архивирование ───────────────────────────
     if "--arch" in argv:
         query = args.arch.strip() if args.arch else None
 
@@ -256,8 +251,6 @@ def run(argv):
         else:
             # [X] или [X][A], [X][B], и т.п.
             predicate = lambda l: re.match(r"^\[X\](\[\w\])?", l.strip()) and "habit:" not in l
-
-
 
 
         moved = modify_file(active_file, predicate, action="remove")
@@ -269,3 +262,5 @@ def run(argv):
         print(f"[→] Archived lines: {len(moved)}")
         return
 
+if __name__ == "__main__":
+    run(sys.argv[1:])

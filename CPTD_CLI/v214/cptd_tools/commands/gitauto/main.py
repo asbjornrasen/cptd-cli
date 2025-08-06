@@ -42,6 +42,7 @@ def get_workflow_path():
     return Path(__file__).parent / "workflow"
 
 def run(argv):
+    # Check if --help or -h is passed
     if "--help" in argv or "-h" in argv:
         print_help(SYNTAX)
         return
@@ -140,5 +141,6 @@ def run(argv):
             return
         execute_workflow(yaml_path, dry_run=args.dry_run, log_path=args.log, summary=args.summary)
         return
-
-    print_help(SYNTAX)
+    
+if __name__ == "__main__":
+    run(sys.argv[1:])
