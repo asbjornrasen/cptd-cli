@@ -1,13 +1,12 @@
-
 from pathlib import Path
 import argparse, yaml, subprocess, sys, shutil, json, os
 from cptd_tools.syntax_utils import print_help
 from util.runner import execute_workflow
 
 SYNTAX = {
-    "name": "gitauto",
-    "description": "Run git commands defined in a YAML workflow file",
-    "usage": "cptd gitauto [options]",
+    "name": "runner",
+    "description": "Run commands defined in a YAML workflow file",
+    "usage": "cptd runner [options]",
     "arguments": [
         {"name": "--file", "required": False, "help": "YAML workflow file"},
         {"name": "--add-yaml", "required": False, "help": "Copy YAML file to workflow directory"},
@@ -18,12 +17,13 @@ SYNTAX = {
         {"name": "--dry-run", "required": False, "help": "Show commands without executing"},
         {"name": "--log", "required": False, "help": "Log output to a file"},
         {"name": "--summary", "required": False, "help": "Show summary at the end"},
-        {"name": "--example", "required": False, "help": "Example a YAML file"}
+        {"name": "--example", "required": False, "help": "Example a YAML file"},
+        {"name": "--repo", "required": False, "help": "Directory to run the commands in"}  # Новый параметр
     ],
     "examples": [
-        "cptd gitauto --file deploy.yaml",
-        "cptd gitauto --add-yaml myfile.yaml",
-        "cptd gitauto --log out.txt --file deploy.yaml --summary"
+        "cptd runner --file deploy.yaml --repo /path/to/repo",
+        "cptd runner --add-yaml myfile.yaml",
+        "cptd runner --log out.txt --file deploy.yaml --summary"
     ]
 }
 
@@ -46,7 +46,7 @@ def run(argv):
         print_help(SYNTAX)
         return
     
-    parser = argparse.ArgumentParser("cptd gitauto", add_help=False)
+    parser = argparse.ArgumentParser("cptd runner", add_help=False)
     parser.add_argument("--file", type=str)
     parser.add_argument("--add-yaml", type=str)
     parser.add_argument("--del-yaml", type=str)
@@ -57,6 +57,7 @@ def run(argv):
     parser.add_argument("--log", type=str)
     parser.add_argument("--summary", action="store_true")
     parser.add_argument("--example", action="store_true")
+    parser.add_argument("--repo", type=str, help="Directory to run the commands in")  # Добавлен параметр repo
 
     try:
         args = parser.parse_args(argv)
@@ -106,11 +107,10 @@ def run(argv):
             print("  •", f.name)
         return
 
-    
     if "--example" in argv:
         example_path = Path.cwd() / "example.yaml"
-        example_content = """name: "Example  Workflow"
-repo: ""
+        example_content = """name: "Example Workflow"
+repo: "/path/to/"  # Specify the path to the directory if necessary
 steps:
   - name: "Generate file"
     command: "bash"
@@ -135,17 +135,41 @@ steps:
   - name: "Run Python script"
     command: "python3"
     args: ["-c", "print('Hello from Python!')"]
-
 """
         example_path.write_text(example_content)
         print(f"[✔] Example written to: {example_path}")
         return
 
-    if args.file:
-        yaml_path = workflow_dir / args.file
-        if not yaml_path.exists():
-            print(f"[✘] File not found: {yaml_path}")
+    # Processing the repo parameter in the YAML file
+    if args.repo:
+        repo_path = Path(args.repo)
+        if not repo_path.exists():
+            print(f"[✘] Repository path not found: {repo_path}")
             return
+        os.chdir(repo_path)  # Change the working directory to the one specified in the repo parameter
+        print(f"[✔] Changed working directory to: {repo_path}")
+    else:
+        # If the repo parameter is not set, check it in the YAML file
+        if args.file:
+            yaml_path = workflow_dir / args.file
+            if not yaml_path.exists():
+                print(f"[✘] File not found: {yaml_path}")
+                return
+            
+            # Reading YAML file to get repo value
+            with open(yaml_path, 'r') as f:
+                yaml_content = yaml.safe_load(f)
+                repo_path = yaml_content.get("repo")
+                if repo_path:
+                    repo_path = Path(repo_path)
+                    if repo_path.exists():
+                        os.chdir(repo_path)
+                        print(f"[✔] Changed working directory to: {repo_path}")
+                    else:
+                        print(f"[✘] Repo path in YAML not found: {repo_path}")
+
+    # Launching command execution from YAML
+    if args.file:
         execute_workflow(yaml_path, dry_run=args.dry_run, log_path=args.log, summary=args.summary)
         return
 
